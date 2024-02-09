@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-1 {
+  animation: slide-up 1s ease-out;
+  animation-delay: 1s; /* Delay for the image */
+}
+
+.animate-slide-in-2 {
+  animation: slide-in 1s ease-out;
+  animation-delay: 2s; /* Delay for the image */
+}
+@media (max-width: 769px) {
+  .logo {
+    margin-bottom: 1rem;
+  }
+}
+.logo {
+  height: 60px;
+  width: 60px;
+  display: flex;
+  border-radius: 3rem;
+}
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: rgb(36, 35, 37);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgb(36, 35, 37);
+  transition: background-color 0.3s;
+  width: 50%;
+}
