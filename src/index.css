@@ -38,11 +38,7 @@
   animation: slide-in 1s ease-out;
   animation-delay: 2s; /* Delay for the image */
 }
-@media (max-width: 769px) {
-  .logo {
-    margin-bottom: 1rem;
-  }
-}
+
 .logo {
   height: 60px;
   width: 60px;

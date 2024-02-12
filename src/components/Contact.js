@@ -30,10 +30,10 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className={`${getThemeStyles(theme)} px-20 py-10 relative`}
+      className={`${getThemeStyles(theme)} relative`}
     >
       <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
-        <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+        <div className="lg:w-2/3 md:w-3/4 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
           <iframe
             width="100%"
             height="100%"
@@ -73,7 +73,7 @@ export default function Contact() {
           netlify
           name="contact"
           onSubmit={handleSubmit}
-          className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
+          className="lg:w-1/3 md:w-3/4 flex flex-col mr-auto md:ml-auto w-full md:py-8 mt-8 md:mt-0"
         >
           <h2 className="sm:text-4xl text-3xl mb-1 font-medium title-font">
             Hire Me

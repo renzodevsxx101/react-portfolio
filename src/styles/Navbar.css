@@ -63,8 +63,9 @@ input:checked + .slider:before {
   box-shadow: inset 15px -4px 0px 15px #fff000;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .switch {
     margin-top: 1em;
   }
+  
 }
