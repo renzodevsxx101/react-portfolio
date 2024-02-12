@@ -9,28 +9,11 @@ export const projects = [
   },
   {
     title: "Weather App",
-    subtitle: "React and OpenWeatherMap API",
+    subtitle: "React w/ OpenWeatherMap API",
     description:
       "Created a weather with an API to get temperature, humidity, and wind speed to a certain location.",
     image: "./weather.gif",
     link: "https://weather-app-sendoh.netlify.app/",
-  },
-];
-
-export const testimonials = [
-  {
-    quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
-    name: "Jesse Hicks",
-    company: "Zoozle",
-  },
-  {
-    quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
-    image: "https://randomuser.me/api/portraits/men/94.jpg",
-    name: "Ruben Alvarez",
-    company: "Dooble.io",
   },
 ];
 

@@ -25,11 +25,16 @@ export default function Navbar() {
       style={headerStyle}
       className="mx-auto md:sticky top-0 z-10 shadow-md"
     >
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a href="#">
-          <img src="./logo.png" alt="Logo" className="logo" />
-        </a>
-        <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700 flex flex-wrap items-center text-base justify-center">
+      {/* The container should be a flex container with direction column on small screens */}
+      <div className="container mx-auto flex flex-wrap p-5 md:flex-row items-center justify-between md:justify-start">
+        {/* Logo and Toggle Switch are now in their own flex containers that will stack on small screens */}
+        <div className="flex justify-center md:justify-start w-full md:w-auto">
+          <a href="#" className="inline-block">
+            <img src="./logo.png" alt="Logo" className="logo" />
+          </a>
+        </div>
+        <nav className="w-full md:w-auto md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700 flex flex-wrap items-center text-base justify-center">
+          {/* Links remain unchanged */}
           <a
             href="#about"
             className={linkClass("about")}
@@ -37,7 +42,6 @@ export default function Navbar() {
           >
             About
           </a>
-
           <a
             href="#projects"
             className={linkClass("projects")}
@@ -53,14 +57,16 @@ export default function Navbar() {
             Skills
           </a>
         </nav>
-        <label className="switch flex items-center mr-8 justify-center">
-          <input
-            type="checkbox"
-            onChange={toggleTheme}
-            checked={theme === "dark"}
-          />
-          <span className="slider"></span>
-        </label>
+        <div className="flex justify-center md:justify-end w-full md:w-auto">
+          <label className="switch">
+            <input
+              type="checkbox"
+              onChange={toggleTheme}
+              checked={theme === "dark"}
+            />
+            <span className="slider"></span>
+          </label>
+        </div>
       </div>
     </header>
   );

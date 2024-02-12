@@ -1,4 +1,3 @@
-/* The switch - the box around the slider */
 .switch {
   font-size: 17px;
   position: relative;
@@ -6,14 +5,29 @@
   height: 2em;
 }
 
-/* Hide default HTML checkbox */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-link {
+    text-align: center;
+    margin-right: 1em;
+    margin-bottom: 5px;
+  }
+
+  .switch {
+    margin-top: 20px;
+  }
+}
+
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   --background: #121113;
   position: absolute;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
+import getThemeStyles from "../components/Theme";
 
 export default function About() {
   const { theme } = useTheme();
@@ -56,11 +57,8 @@ export default function About() {
     wordflick();
   }, []);
 
-  const aboutStyle =
-    theme === "light" ? "bg-gray-400 text-black" : "bg-gray-800 text-white";
-
   return (
-    <section className={`${aboutStyle} px-20 py-10`} id="about">
+    <section className={`${getThemeStyles(theme)} px-20 py-10`} id="about">
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         <div className="flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col items-start text-left mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-2xl mb-4 font-medium">
