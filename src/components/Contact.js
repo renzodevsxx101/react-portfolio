@@ -51,31 +51,31 @@ export default function Contact() {
               <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                 ADDRESS
               </h2>
-              <p className="mt-1 text-white">Purok 3</p>
+              <p className="mt-1 text-white">
+                Purok 3 Iba Este, Calumpit, Bulacana
+              </p>
             </div>
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
               <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                 EMAIL
               </h2>
-              <a className="text-indigo-400 leading-relaxed">pagd</a>
+              <a className="text-indigo-400 leading-relaxed">
+                pagdanganan.johnrenz <br />
+                @gmail.com
+              </a>
               <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
                 PHONE
               </h2>
-              <p className="leading-relaxed text-white">+63930</p>
+              <p className="leading-relaxed text-white">+63930-195-9824</p>
             </div>
           </div>
         </div>
         <form
-          netlify="true"
+          netlify
           name="contact"
-          method="POST"
-          // onSubmit={handleSubmit}
-          data-netlify-honeypot="bot-field" // Optional: For Netlify's spam filtering
+          onSubmit={handleSubmit}
           className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
         >
-          {/* Hidden input for Netlify to identify this form */}
-          <input type="hidden" name="form-name" value="contact" />
-          {/* Form fields remain unchanged */}
           <h2 className="sm:text-4xl text-3xl mb-1 font-medium title-font">
             Hire Me
           </h2>
