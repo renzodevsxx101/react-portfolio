@@ -51,22 +51,17 @@ export default function Contact() {
               <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                 ADDRESS
               </h2>
-              <p className="mt-1 text-white">
-                Purok 3 Iba Este, Calumpit, Bulacana
-              </p>
+              <p className="mt-1 text-white">acal</p>
             </div>
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
               <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                 EMAIL
               </h2>
-              <a className="text-indigo-400 leading-relaxed">
-                pagdanganan.johnrenz <br />
-                @gmail.com
-              </a>
+              <a className="text-indigo-400 leading-relaxed">gg</a>
               <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
                 PHONE
               </h2>
-              <p className="leading-relaxed text-white">+63930-195-9824</p>
+              <p className="leading-relaxed text-white">+63</p>
             </div>
           </div>
         </div>
@@ -76,6 +71,7 @@ export default function Contact() {
           onSubmit={handleSubmit}
           className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
         >
+          <input type="hidden" name="form-name" value="contact" />
           <h2 className="sm:text-4xl text-3xl mb-1 font-medium title-font">
             Hire Me
           </h2>
