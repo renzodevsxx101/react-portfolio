@@ -12,7 +12,25 @@ export default function Contact() {
       ? { backgroundColor: "#B4B4B8", color: "#000000" }
       : { backgroundColor: "#280274", color: "#ffffff" };
 
-  console.log(name, email, message);
+  function encode(data) {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", name, email, message }),
+    })
+      .then(() => alert("Message sent!"))
+      .catch((error) => alert(error));
+  }
+
   return (
     <section style={aboutStyle} id="contact" className=" relative">
       <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
@@ -57,7 +75,6 @@ export default function Contact() {
           className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
           method="POST"
         >
-          <input type="hidden" name="form-name" value="contact" />
           <h2 className="sm:text-4xl text-3xl mb-1 font-medium title-font">
             Hire Me
           </h2>
