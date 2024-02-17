@@ -62,10 +62,6 @@ export default function Contact() {
                 pagdanganan.johnrenz <br />
                 @gmail.com
               </a>
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
-                LinkedIn
-              </h2>
-              <a style= "underline" className="leading-relaxed text-white">https://www.linkedin.com/in/john-renz-pagdanganan-08b525217/</a>
             </div>
           </div>
         </div>
