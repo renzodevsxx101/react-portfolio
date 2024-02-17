@@ -65,7 +65,7 @@ export default function Contact() {
               <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
                 LinkedIn
               </h2>
-              <a style= "underline" href="https://www.linkedin.com/in/john-renz-pagdanganan-08b525217/"className="leading-relaxed text-white">https://www.linkedin.com/in/john-renz-pagdanganan-08b525217/</a>
+              <a style= "underline" className="leading-relaxed text-white">https://www.linkedin.com/in/john-renz-pagdanganan-08b525217/</a>
             </div>
           </div>
         </div>
