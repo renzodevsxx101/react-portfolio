@@ -51,7 +51,7 @@ export default function Contact() {
                 ADDRESS
               </h2>
               <p className="mt-1 text-white">
-                Purok 3 Iba Este, Calumpit, Bulacan
+                Calumpit, Bulacan
               </p>
             </div>
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
@@ -62,10 +62,7 @@ export default function Contact() {
                 pagdanganan.johnrenz <br />
                 @gmail.com
               </a>
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
-                PHONE
-              </h2>
-              <p className="leading-relaxed text-white">+63930-195-9824</p>
+              <a href="www.linkedin.com/in/john-renz-pagdanganan-08b525217"className="leading-relaxed text-white">LinkedIn</a>
             </div>
           </div>
         </div>
