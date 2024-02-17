@@ -62,7 +62,10 @@ export default function Contact() {
                 pagdanganan.johnrenz <br />
                 @gmail.com
               </a>
-              <a href="www.linkedin.com/in/john-renz-pagdanganan-08b525217"className="leading-relaxed text-white">LinkedIn</a>
+              <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
+                LinkedIn
+              </h2>
+              <a href="https://www.linkedin.com/in/john-renz-pagdanganan-08b525217/"className="leading-relaxed text-white">+63930-195-9824</a>
             </div>
           </div>
         </div>
