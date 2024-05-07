@@ -43,7 +43,7 @@ export default function Contact() {
             marginHeight={0}
             marginWidth={0}
             style={{ filter: "opacity(0.7)" }}
-            src="https://www.google.com/maps/embed/v1/place?q=Iba+Este,+Calumpit,+Bulacan,+Philippines&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+            src="https://www.google.com/maps/embed/v1/place?q=San%20Pablo,+Laguna,+Philippines&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
           />
           <div className="bg-gray-600 relative flex flex-wrap py-6 px-6 rounded shadow-md">
             <div className="lg:w-1/2 px-6">
@@ -51,7 +51,7 @@ export default function Contact() {
                 ADDRESS
               </h2>
               <p className="mt-1 text-white">
-                Calumpit, Bulacan
+                XYZ City
               </p>
             </div>
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
@@ -59,7 +59,7 @@ export default function Contact() {
                 EMAIL
               </h2>
               <a className="text-indigo-400 leading-relaxed">
-                pagdanganan.johnrenz <br />
+                email <br />
                 @gmail.com
               </a>
             </div>
