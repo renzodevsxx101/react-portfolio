@@ -51,7 +51,7 @@ export default function Contact() {
                 ADDRESS
               </h2>
               <p className="mt-1 text-white">
-                XYZ City
+                San Pablo City
               </p>
             </div>
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
@@ -59,7 +59,7 @@ export default function Contact() {
                 EMAIL
               </h2>
               <a className="text-indigo-400 leading-relaxed">
-                email <br />
+                sezukefajardo <br />
                 @gmail.com
               </a>
             </div>
