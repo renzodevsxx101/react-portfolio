@@ -24,7 +24,7 @@ export const projects = [
   },
   {
     title: "Dashboard",
-    subtitle: "Chart.js, HTML5, Tailwind CSS, Bootstrap, jQuery, JSP, and Tomcat Server ",
+    subtitle: "Chart.js, HTML5, jQuery and CSS Frameworks ",
     description:
       "Created a full stack application using Oracle Apex.",
     image: "./dashBoard.gif",
