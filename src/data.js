@@ -5,7 +5,7 @@ export const projects = [
     description:
       "Created various mobile responsive web pages and new features using React, SCSS, Git and Bitbucket.",
     image: "./aia.gif",
-    link: "https://wwwsit.aia.com.ph/en/myaia/service/service.html/en/myaia/en/myaia/home.html",
+    link: "https://www.aia.com.ph/en/myaia/service/service.html",
   },  {
     title: "Sports Gallery",
     subtitle: "HTML5, CSS3, JavaScript",
@@ -26,7 +26,7 @@ export const projects = [
     title: "Dashboard",
     subtitle: "Chart.js, HTML5, jQuery and CSS Frameworks ",
     description:
-      "Created a full stack application using Oracle Apex.",
+      "Created a dashboard that displays data and information about insurance industry.",
     image: "./dashBoard.gif",
     link: null, 
   },
@@ -51,8 +51,20 @@ export const projects = [
 export const skills = [
   "HTML5/ CSS3/ JavaScript",
   "React.js",
+  "Responsive Web Design",
+  "SASS",
+  "TypeScript",
+  "Next.js",
   "Node.js",
+  "Express.js",
   "Java",
   "Tailwind CSS",
-  "Spring",
+  "Bootstrap",
+  "Spring Boot",
+  "Spring MVC",
+  "Git",
+  "Github/Bitbucket",
+  "Python",
+  "Oracle SQL/ PLSQL",
+  "Oracle APEX"
 ];
