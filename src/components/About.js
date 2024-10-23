@@ -9,8 +9,6 @@ export default function About() {
     "Hi, I'm John Renz !",
     "A Junior Front-End Developer based in the Philippines.",
     "Passionate in creating amazing web apps ;) ",
-    "I like React, Node, SASS, and Tailwind.",
-    "I'm looking for a part-time job.",
   ];
   let part = "";
   let i = 0;
