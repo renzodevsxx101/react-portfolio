@@ -44,7 +44,7 @@ export const projects = [
     description:
       "Created a weather with an API to get temperature, humidity, and wind speed to a certain location.",
     image: "./weather.gif",
-    link: "https://weather-app-sendoh.netlify.app/",
+    link: "https://weather-app-jr998.netlify.app/",
   }
 ];
 
