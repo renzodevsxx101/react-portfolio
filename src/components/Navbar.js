@@ -17,7 +17,7 @@ export default function Navbar() {
 
   const headerStyle =
     theme === "light"
-      ? { backgroundColor: "#CCC8AA", color: "#000000" }
+      ? { backgroundColor: "#ECF4D6", color: "#000000" }
       : { backgroundColor: "#607274", color: "#ffffff" };
 
   return (

@@ -4,12 +4,12 @@ import { projects } from "../data";
 import { useTheme } from "../context/ThemeContext";
 
 export default function Projects() {
-  const { theme } = useTheme(); // Use the theme
+  const { theme } = useTheme();
 
   const Style =
     theme === "light"
-      ? { backgroundColor: "#DED0B6", color: "#000000" }
-      : { backgroundColor: "#474F7A", color: "#ffffff" };
+      ? { backgroundColor: "#EADBC8", color: "#000000" }
+      : { backgroundColor: "#38419D", color: "#ffffff" };
   return (
     <section id="projects" style={Style}>
       <div className="container px-5 py-10 mx-auto text-center lg:px-40">
@@ -24,37 +24,49 @@ export default function Projects() {
           </p>
         </div>
         <div className="flex flex-wrap -m-4">
-  {projects.map((project) => (
-    <a
-      href={project.link}
-      key={project.image}
-      className="sm:w-1/2 w-100 p-4"
-    >
-      <div className="flex relative">
-        <img
-          alt="gallery"
-          className="absolute inset-0 w-100 h-64 object-cover object-center"
-          src={project.image}
-        />
-        <div className="px-8 py-10 h-64 relative z-10 w-100 border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
-          <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
-            {project.subtitle}
-          </h2>
-          <h1 className="title-font text-lg font-medium text-white mb-3">
-            {project.title}
-          </h1>
-          <p className="leading-relaxed text-white">{project.description}</p>
-          <a
-            href={project.link}
-            className="mt-4 inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-          >
-            Preview
-          </a>
+          {projects.map((project) => (
+            <a
+              href={project.link}
+              key={project.image}
+              className="sm:w-1/2 w-100 p-4"
+            >
+              <div className="flex relative">
+                <img
+                  alt="gallery"
+                  className="absolute inset-0 w-100 h-64 object-cover object-center"
+                  src={project.image}
+                />
+                <div className="px-8 py-10 h-64 relative z-10 w-100 border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
+                  <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
+                    {project.subtitle}
+                  </h2>
+                  <h1 className="title-font text-lg font-medium text-white mb-3">
+                    {project.title}
+                  </h1>
+                  <p className="leading-relaxed text-white">{project.description}</p>
+                  <button class="button">
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                    </svg>
+
+
+                    <div class="text">
+                    <a
+                    href={project.link}
+                    
+                  >
+                    Preview
+                  </a>
+                    </div>
+
+                  </button>
+                </div>
+              </div>
+            </a>
+          ))}
         </div>
-      </div>
-    </a>
-  ))}
-</div>
 
       </div>
     </section>

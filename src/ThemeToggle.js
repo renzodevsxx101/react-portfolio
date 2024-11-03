@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "../context/ThemeContext"; // Import useTheme hook
+import { useTheme } from "../context/ThemeContext";
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();

@@ -1,16 +1,16 @@
 export const projects = [
   {
-    title: "AIA Website",
-    subtitle: "React, SCSS, API Integration",
+    title: "My AIA Assist",
+    subtitle: "React, SCSS, REST API Integration",
     description:
-      "Created various mobile responsive web pages and new features using React, SCSS, Git and Bitbucket.",
+      "Developed various mobile responsive web pages and new features using React, SCSS, Git and Bitbucket.",
     image: "./aia.gif",
     link: "https://www.aia.com.ph/en/myaia/service/service.html",
   },  {
     title: "Sports Gallery",
     subtitle: "HTML5, CSS3, JavaScript",
     description:
-      "Created a mobile responsive library of youtube thumbnails using HTML, CSS, and JavaScript.",
+      "Developed a mobile responsive library of youtube thumbnails using HTML, CSS, and JavaScript.",
     image: "./sportsTube.gif",
     link: "https://sportstube.netlify.app/", 
   },
@@ -18,23 +18,23 @@ export const projects = [
     title: "Supplies Management System",
     subtitle: "Oracle SQL, Oracle PL/SQL, HTML5, and JavaScript",
     description:
-      "Created a full stack application using Oracle Apex.",
+      "Developed a full stack application using Oracle Apex.",
     image: "./sms.gif",
     link: "https://apex.oracle.com/pls/apex/r/oracleapextraining2024/supplies-management-system/login", 
   },
   {
-    title: "Dashboard",
-    subtitle: "Chart.js, HTML5, jQuery and CSS Frameworks ",
+    title: "Fun88",
+    subtitle: "React, TypeScript, React Carousel, Tailwind CSS",
     description:
-      "Created a dashboard that displays data and information about insurance industry.",
-    image: "./dashBoard.gif",
-    link: null, 
+      "Developed a responsive online casino web app w/ mock API integration.",
+    image: "./fun88.gif",
+    link: "https://jrp-online-casino.netlify.app/",
   },
   {
     title: "Todo List App",
     subtitle: "React and Bootstrap",
     description:
-      "Created a todo list app using React.js and was deployed to github pages.",
+      "Developed a todo list app using React.js and was deployed to github pages.",
     image: "./TODOs.gif",
     link: "https://renzodevsxx101.github.io/todo-list/",
   },
@@ -46,25 +46,4 @@ export const projects = [
     image: "./weather.gif",
     link: "https://weather-app-jr998.netlify.app/",
   }
-];
-
-export const skills = [
-  "HTML5/ CSS3/ JavaScript",
-  "React.js",
-  "Responsive Web Design",
-  "SASS",
-  "TypeScript",
-  "Next.js",
-  "Node.js",
-  "Express.js",
-  "Java",
-  "Tailwind CSS",
-  "Bootstrap",
-  "Spring Boot",
-  "Spring MVC",
-  "Git",
-  "Github/Bitbucket",
-  "Python",
-  "Oracle SQL/ PLSQL",
-  "Oracle APEX"
 ];
