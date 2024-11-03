@@ -141,7 +141,7 @@
   border-radius: 11px;
   text-align: right;
   transition: all 0.6s ease;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .button:hover {

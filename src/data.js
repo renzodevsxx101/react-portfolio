@@ -1,9 +1,9 @@
 export const projects = [
   {
     title: "My AIA Assist",
-    subtitle: "React, SCSS, REST API Integration",
+    subtitle: "React JS, SCSS, REST API Integration",
     description:
-      "Developed various mobile responsive web pages and new features using React, SCSS, Git and Bitbucket.",
+      "Developed various mobile responsive web pages and new features.",
     image: "./aia.gif",
     link: "https://www.aia.com.ph/en/myaia/service/service.html",
   },  {
@@ -18,7 +18,7 @@ export const projects = [
     title: "Supplies Management System",
     subtitle: "Oracle SQL, Oracle PL/SQL, HTML5, and JavaScript",
     description:
-      "Developed a full stack application using Oracle Apex.",
+      "Developed a full stack application using Oracle APEX, SQL and PL/SQL.",
     image: "./sms.gif",
     link: "https://apex.oracle.com/pls/apex/r/oracleapextraining2024/supplies-management-system/login", 
   },

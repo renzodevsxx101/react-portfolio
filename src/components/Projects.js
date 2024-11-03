@@ -25,8 +25,7 @@ export default function Projects() {
         </div>
         <div className="flex flex-wrap -m-4">
           {projects.map((project) => (
-            <a
-              href={project.link}
+            <a href
               key={project.image}
               className="sm:w-1/2 w-100 p-4"
             >
@@ -36,7 +35,7 @@ export default function Projects() {
                   className="absolute inset-0 w-100 h-64 object-cover object-center"
                   src={project.image}
                 />
-                <div className="px-8 py-10 h-64 relative z-10 w-100 border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
+                <div className="px-8 py-10 h-64 relative w-100 border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
                   <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
                     {project.subtitle}
                   </h2>
@@ -45,20 +44,15 @@ export default function Projects() {
                   </h1>
                   <p className="leading-relaxed text-white">{project.description}</p>
                   <button class="button">
-
-
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
                     </svg>
-
-
                     <div class="text">
-                    <a
-                    href={project.link}
-                    
-                  >
-                    Preview
-                  </a>
+                      <a
+                        href={project.link}
+                      >
+                        Preview
+                      </a>
                     </div>
 
                   </button>
