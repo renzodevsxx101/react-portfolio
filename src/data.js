@@ -42,7 +42,7 @@ export const projects = [
     title: "Weather App",
     subtitle: "React w/ OpenWeatherMap API",
     description:
-      "Created a weather with an API to get temperature, humidity, and wind speed to a certain location.",
+      "Developed a weather app with an API to get temperature, humidity, and wind speed to a certain location.",
     image: "./weather.gif",
     link: "https://weather-app-jr998.netlify.app/",
   }
