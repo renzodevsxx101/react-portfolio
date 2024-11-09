@@ -9,7 +9,7 @@ export default function Projects() {
   const Style =
     theme === "light"
       ? { backgroundColor: "#EADBC8", color: "#000000" }
-      : { backgroundColor: "#38419D", color: "#ffffff" };
+      : { backgroundColor: "#03346E", color: "#ffffff" };
   return (
     <section id="projects" style={Style}>
       <div className="container px-5 py-10 mx-auto text-center lg:px-40">

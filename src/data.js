@@ -1,6 +1,6 @@
 export const projects = [
   {
-    title: "My AIA Assist",
+    title: "My AIA Philippines",
     subtitle: "React JS, SCSS, REST API Integration",
     description:
       "Developed various mobile responsive web pages and new features.",
