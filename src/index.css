@@ -83,6 +83,7 @@
   .skillsGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+    padding:0 2rem;
   }
 
   .skillsGrid img {

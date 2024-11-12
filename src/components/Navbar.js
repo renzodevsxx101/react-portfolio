@@ -86,7 +86,7 @@ export default function Navbar() {
                     <span className="slider"></span>
                   </label>
                   <button
-                    className="w-full sm:w-auto bg-primary-300 hover:bg-primary-500 text-white py-2 px-4 sm:py-2 sm:px-6 rounded mb-2 sm:mb-0"
+                    className="w-full sm:w-auto text-lg bg-primary-300 hover:bg-primary-500 text-white py-2 px-4 sm:py-2 sm:px-6 rounded mb-2 sm:mb-0"
                     onClick={dlCV}
                   >
                     Download CV
@@ -144,7 +144,7 @@ export default function Navbar() {
               Skills
             </a>
             <button
-              className="sm:w-auto bg-primary-300 hover:bg-primary-500 text-white py-2 px-4 sm:py-2 sm:px-6 rounded mb-2 sm:mb-0"
+              className="sm:w-auto bg-primary-400 hover:bg-primary-500 text-white py-2 px-4 sm:py-2 sm:px-6 rounded mb-2 sm:mb-0 text-lg"
               onClick={dlCV}
             >
               Download CV
