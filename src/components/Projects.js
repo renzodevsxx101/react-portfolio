@@ -12,7 +12,7 @@ export default function Projects() {
       : { backgroundColor: "#03346E", color: "#ffffff" };
   return (
     <section id="projects" style={Style}>
-      <div className="container px-5 py-10 mx-auto text-center lg:px-40">
+      <div className="px-5 py-10 mx-auto text-center lg:px-40">
         <div className="flex flex-col w-full mb-20">
           <CodeIcon className="mx-auto inline-block w-10 mb-4" />
           <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4">
@@ -29,13 +29,13 @@ export default function Projects() {
               key={project.image}
               className="sm:w-1/2 w-100 p-4"
             >
-              <div className="flex relative">
+              <div className="flex relative mb-2">
                 <img
                   alt="gallery"
-                  className="absolute inset-0 w-100 h-64 object-cover object-center"
+                  className="absolute inset-0 w-100 h-72 object-cover object-center"
                   src={project.image}
                 />
-                <div className="px-8 py-10 h-64 relative w-100 border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
+                <div className="px-8 py-10 h-72 relative w-100 border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
                   <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
                     {project.subtitle}
                   </h2>

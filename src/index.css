@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Montserrat:wght@700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
 }
 
 @keyframes slide-in {
@@ -56,20 +59,7 @@
 
 .nav-link:hover,
 .nav-link.active {
-  color: rgb(36, 35, 37);
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: rgb(36, 35, 37);
-  transition: background-color 0.3s;
-  width: 50%;
+  color: rgb(192, 155, 35);
 }
 
 .skills {
@@ -101,7 +91,7 @@
   }
 }
 
-@media screen and (min-width: 641px) {
+@media screen and (min-width: 641px) and (max-width: 1079px) {
   .skillsGrid {
     grid-template-columns: repeat(4, 1fr);
     gap: 70px;
@@ -123,7 +113,7 @@
 
   .skillsGrid img {
     height: 125px;
-    width: 125px;
+    width:125px;
   }
 }
 

@@ -41,7 +41,7 @@ export default function Skills() {
 
     return (
         <section style={aboutStyle} id="skills" className="skills">
-            <div className="container px-5 py-10 flex flex-col justify-center mx-auto">
+            <div className="px-5 py-10 flex flex-col justify-center mx-auto">
                 <div className="text-center mb-10">
                     <ChipIcon className="w-10 inline-block mb-4" />
                     <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4">

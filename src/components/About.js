@@ -58,9 +58,9 @@ export default function About() {
   return (
     <section className={`${getThemeStyles(theme)} px-20 py-10`} id="about">
       <div className="container mx-auto flex flex-col md:flex-row items-center">
-        <div className="flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col items-start text-left mb-16 md:mb-0 items-center text-center">
+        <div className="flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-2xl mb-4 font-medium">
-            <span className="flex word mb-4 font-mono">{typedText}</span>
+            <span className="flex word mb-4">{typedText}</span>
           </h1>
           <div className="flex flex-col items-center sm:flex-row sm:justify-center">
             <a
