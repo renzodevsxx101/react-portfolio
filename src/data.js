@@ -16,7 +16,7 @@ export const projects = [
   },
   {
     title: "Supplies Management System",
-    subtitle: "Oracle SQL, PL/SQL, HTML5/static/gif",
+    subtitle: "Oracle SQL, PL/SQL, HTML5",
     description:
       "Developed a full stack application using Oracle APEX, SQL and PL/SQL.",
     image: "./static/gif/sms.gif",
@@ -32,7 +32,7 @@ export const projects = [
   },
   {
     title: "Todo List App",
-    subtitle: "React and Boot/static/gifstrap",
+    subtitle: "React and Bootstrap",
     description:
       "Developed a todo list app using React.js and was deployed to github pages.",
     image: "./static/gif/TODOs.gif",
