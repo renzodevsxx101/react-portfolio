@@ -30,11 +30,6 @@ export default function Navbar() {
       ? { backgroundColor: "#e1e1e1", color: "#000000" }
       : { backgroundColor: "#252636", color: "#e5fffa" };
 
-  const mobHeaderStyle =
-    theme === "light"
-      ? { backgroundColor: "#e1e1e1", color: "#000000" }
-      : { backgroundColor: "#252636", color: "#e5fffa" };
-
   return (
     <nav className={isAboveMediumScreens ? 'mb-14' : 'mb-20'}
     >
@@ -142,6 +137,13 @@ export default function Navbar() {
               onClick={() => handleSetActive("skills")}
             >
               Skills
+            </a>
+            <a
+              href="#contact"
+              className={linkClass("contact")}
+              onClick={() => handleSetActive("contact")}
+            >
+              Contact
             </a>
             <button
               className="sm:w-auto bg-primary-400 hover:bg-primary-500 text-white py-2 px-4 sm:py-2 sm:px-6 rounded mb-2 sm:mb-0 text-lg"

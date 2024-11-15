@@ -6,13 +6,22 @@ export const projects = [
       "Developed various mobile responsive web pages and new features.",
     image: "./static/gif/aia.gif",
     link: "https://www.aia.com.ph/en/myaia/service/service.html",
-  },  {
+  },
+  {
+    title: "JRPSerts",
+    subtitle: "HTML5, CSS3, JavaScript, Tailwind CSS",
+    description:
+      "Developed a mobile responsive online store.",
+    image: "./static/gif/jrpserts.gif",
+    link: "https://jrpserts.netlify.app/",
+  },
+  {
     title: "Sports Gallery",
     subtitle: "HTML5, CSS3, JavaScript",
     description:
       "Developed a mobile responsive library of youtube thumbnails using HTML, CSS, and JavaScript.",
     image: "./static/gif/sportsTube.gif",
-    link: "https://sportstube.netlify.app/", 
+    link: "https://sportstube.netlify.app/",
   },
   {
     title: "Supplies Management System",
@@ -20,7 +29,7 @@ export const projects = [
     description:
       "Developed a full stack application using Oracle APEX, SQL and PL/SQL.",
     image: "./static/gif/sms.gif",
-    link: "https://apex.oracle.com/pls/apex/r/oracleapextraining2024/supplies-management-system/login", 
+    link: "https://apex.oracle.com/pls/apex/r/oracleapextraining2024/supplies-management-system/login",
   },
   {
     title: "Fun88",
