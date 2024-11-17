@@ -59,7 +59,7 @@
 
 .nav-link:hover,
 .nav-link.active {
-  color: rgb(192, 155, 35);
+  color: rgb(170, 85, 235);
 }
 
 .skills {
@@ -78,6 +78,10 @@
   height: auto;
 }
 
+.gradient-line{
+  background: linear-gradient(to right, #FFFF00, #8A2BE2);
+
+}
 
 @media screen and (max-width: 640px) {
   .skillsGrid {

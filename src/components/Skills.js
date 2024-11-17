@@ -1,7 +1,10 @@
 import { ChipIcon } from "@heroicons/react/solid";
 import React from "react";
 import Skill from '../components/Skill';
+import LineGradient from "../components/LineGradient";
 import { useTheme } from "../context/ThemeContext";
+import { motion } from "framer-motion";
+
 
 export default function Skills() {
     const { theme } = useTheme();
@@ -42,20 +45,46 @@ export default function Skills() {
     return (
         <section style={aboutStyle} id="skills" className="skills">
             <div className="px-5 py-10 flex flex-col justify-center mx-auto">
-                <div className="text-center mb-10">
+                <motion.div className="text-center mb-10"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.5 }}
+                    variants={{
+                        hidden: { opacity: 0, y: -50 },
+                        visible: { opacity: 1, y: 0 },
+                    }}>
                     <ChipIcon className="w-10 inline-block mb-4" />
-                    <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4">
-                        Skills &amp; Technologies
-                    </h1>
+                    <p className="sm:text-4xl text-3xl font-semibold title-font mb-2">
+                        Skills &amp;<span className="text-purple-600"> Technologies</span>
+                    </p>
+                    <div className="flex justify-center mb-4">
+                        <LineGradient width="w-2/12" />
+                    </div>
                     <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
                         Here are the skills and technologies I'm proficient in.
                     </p>
-                </div>
-                <div className="skillsGrid">
+                </motion.div>
+                <motion.div
+                    className="skillsGrid"
+                >
                     {skills.map((skill, index) => (
-                        <Skill key={index} {...skill} />
+                        <motion.div
+                            key={index}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ delay: 0.05 * index, duration: 0.2 }}
+                            variants={{
+                                hidden: { opacity: 0, y: 50 },
+                                visible: { opacity: 1, y: 0 },
+                            }}
+                        >
+                            <Skill {...skill} />
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
+
             </div>
         </section>
     );

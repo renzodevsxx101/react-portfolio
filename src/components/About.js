@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import getThemeStyles from "../components/Theme";
+import { motion } from "framer-motion";
+
 
 export default function About() {
   const { theme } = useTheme();
@@ -56,13 +58,21 @@ export default function About() {
   }, []);
 
   return (
-    <section className={`${getThemeStyles(theme)} px-20 py-10`} id="about">
+    <section className={`${getThemeStyles(theme)} px-20 pt-10`} id="about">
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         <div className="flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-2xl mb-4 font-medium">
             <span className="flex word mb-4">{typedText}</span>
           </h1>
-          <div className="flex flex-col items-center sm:flex-row sm:justify-center">
+          <motion.div className="flex flex-col items-center sm:flex-row sm:justify-center"
+           initial="hidden"
+           whileInView="visible"
+           viewport={{ once: true, amount: 0.5 }}
+           transition={{ delay: 0.2, duration: 0.5 }}
+           variants={{
+             hidden: { opacity: 0, x: 50 },
+             visible: { opacity: 1, x:0 },
+           }}>
             <a
               href="#contact"
               className="w-full sm:w-auto bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 sm:py-2 sm:px-6 rounded mb-2 sm:mb-0"
@@ -75,13 +85,13 @@ export default function About() {
             >
               View My Projects
             </a>
-          </div>
+          </motion.div>
         </div>
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 relative">
+        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
           <img
             className="object-cover object-center rounded-full"
             alt="hero"
-            src="pic.png"
+            src="me.png"
             style={{
               filter:
                 theme === "dark"

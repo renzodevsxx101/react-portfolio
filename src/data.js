@@ -16,14 +16,6 @@ export const projects = [
     link: "https://jrpserts.netlify.app/",
   },
   {
-    title: "Sports Gallery",
-    subtitle: "HTML5, CSS3, JavaScript",
-    description:
-      "Developed a mobile responsive library of youtube thumbnails using HTML, CSS, and JavaScript.",
-    image: "./static/gif/sportsTube.gif",
-    link: "https://sportstube.netlify.app/",
-  },
-  {
     title: "Supplies Management System",
     subtitle: "Oracle SQL, PL/SQL, HTML5",
     description:

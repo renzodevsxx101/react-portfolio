@@ -3,6 +3,7 @@ import { useTheme } from "../context/ThemeContext";
 import "../styles/Navbar.css";
 import useMediaQuery from "../utils/useMediaQuery";
 import { MenuAlt3Icon, XIcon } from "@heroicons/react/solid";
+import ToggleButton from "./ToggleButton";
 
 export default function Navbar() {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
@@ -28,7 +29,7 @@ export default function Navbar() {
   const headerStyle =
     theme === "light"
       ? { backgroundColor: "#e1e1e1", color: "#000000" }
-      : { backgroundColor: "#252636", color: "#e5fffa" };
+      : { backgroundColor: "#010026", color: "#e5fffa" };
 
   return (
     <nav className={isAboveMediumScreens ? 'mb-14' : 'mb-20'}
@@ -37,10 +38,10 @@ export default function Navbar() {
         <div className="mx-auto w-5/6 flex items-center justify-between ">
           <div className="flex items-center justify-between w-full gap-16">
             <a href="#">
-              <img src="./logo.png" alt="Logo" className="logo" />
+              <img style={{ width: "5rem" }} src="./logo.png" alt="Logo" className="logo" />
             </a>
             {isAboveMediumScreens ?
-              <div className="flex items-center justify-between w-full">
+              <div className="flex items-center justify-between w-full bg-gradient-violet">
                 <div className="flex items-center justify-between gap-8 text-sm">
                   <a
                     href="#about"
@@ -72,18 +73,12 @@ export default function Navbar() {
                   </a>
                 </div>
                 <div className="flex justify-center items-center gap-8">
-                  <label className="switch">
-                    <input
-                      type="checkbox"
-                      onChange={toggleTheme}
-                      checked={theme === "dark"}
-                    />
-                    <span className="slider"></span>
-                  </label>
+                  <ToggleButton />
                   <button
-                    className="w-full sm:w-auto text-lg bg-primary-300 hover:bg-primary-500 text-white py-2 px-4 sm:py-2 sm:px-6 rounded mb-2 sm:mb-0"
+                    className="flex gap-3 items-center justify-center w-full sm:w-auto text-lg bg-primary-300 hover:bg-primary-500 text-white py-2 px-2 sm:py-2 sm:px-4 rounded mb-2 sm:mb-0"
                     onClick={dlCV}
                   >
+                    <img style={{ width: "1.25rem" }} src="./dl.svg" alt="download" />
                     Download CV
                   </button>
                 </div>
@@ -92,7 +87,7 @@ export default function Navbar() {
               : (
                 <div className="flex items-center justify-center gap-8">
                   <button
-                    className="rounded-full bg-primary-100 p-2"
+                    className="rounded-full bg-primary-400 p-2"
                     onClick={() => setIsMenuToggled(!isMenuToggled)}
                   >
                     <MenuAlt3Icon className="h-6 w-6 text-white" />
@@ -146,21 +141,13 @@ export default function Navbar() {
               Contact
             </a>
             <button
-              className="sm:w-auto bg-primary-400 hover:bg-primary-500 text-white py-2 px-4 sm:py-2 sm:px-6 rounded mb-2 sm:mb-0 text-lg"
+              className="flex items-center justify-center gap-3 sm:w-auto bg-primary-400 hover:bg-primary-500 text-white py-2 px-4 sm:py-2 sm:px-3 rounded mb-2 sm:mb-0 text-lg"
               onClick={dlCV}
             >
+              <img style={{ width: "1.25rem" }} src="./dl.svg" alt="download" />
               Download CV
             </button>
-
-            <label className="switch">
-              <input
-                type="checkbox"
-                onChange={toggleTheme}
-                checked={theme === "dark"}
-              />
-              <span className="slider"></span>
-            </label>
-
+            <ToggleButton />
           </div>
         </div>
       )}
