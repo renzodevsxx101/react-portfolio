@@ -59,7 +59,7 @@
 
 .nav-link:hover,
 .nav-link.active {
-  color: rgb(170, 85, 235);
+  color: rgb(183, 8, 222);
 }
 
 .skills {
@@ -87,7 +87,8 @@
   .skillsGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    padding:0 2rem;
+    padding:2rem;
+
   }
 
   .skillsGrid img {
@@ -100,7 +101,7 @@
   .skillsGrid {
     grid-template-columns: repeat(4, 1fr);
     gap: 70px;
-    padding:0 2rem 10rem 2rem;
+    padding: 4rem;
   }
 
   .skillsGrid img {
@@ -113,7 +114,7 @@
   .skillsGrid {
     grid-template-columns: repeat(6, 1fr);
     gap: 60px;
-    padding: 2rem 10rem 7rem 10rem;
+    padding: 3rem 5rem;
   }
 
   .skillsGrid img {
@@ -132,7 +133,6 @@
   color: #fff;
   width: 8.5em;
   height: 2.9em;
-  border: #0f832c 0.2em solid;
   border-radius: 11px;
   text-align: right;
   transition: all 0.6s ease;

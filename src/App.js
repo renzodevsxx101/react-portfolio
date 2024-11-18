@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Footer from "./components/Footer";
+import LineGradient from "./components/LineGradient";
+
 
 export default function App() {
   return (

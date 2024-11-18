@@ -28,13 +28,13 @@ export default function Navbar() {
 
   const headerStyle =
     theme === "light"
-      ? { backgroundColor: "#e1e1e1", color: "#000000" }
+      ? { backgroundColor: "#d0d0d0", color: "#000000" }
       : { backgroundColor: "#010026", color: "#e5fffa" };
 
   return (
     <nav className={isAboveMediumScreens ? 'mb-14' : 'mb-20'}
     >
-      <div style={headerStyle} className="fixed top-0 z-30 w-full py-3 shadow-md">
+      <div style={headerStyle} className="fixed top-0 z-30 w-full py-3">
         <div className="mx-auto w-5/6 flex items-center justify-between ">
           <div className="flex items-center justify-between w-full gap-16">
             <a href="#">
@@ -72,10 +72,10 @@ export default function Navbar() {
                     Contact
                   </a>
                 </div>
-                <div className="flex justify-center items-center gap-8">
+                <div className="flex justify-center items-center gap-6">
                   <ToggleButton />
                   <button
-                    className="flex gap-3 items-center justify-center w-full sm:w-auto text-lg bg-primary-300 hover:bg-primary-500 text-white py-2 px-2 sm:py-2 sm:px-4 rounded mb-2 sm:mb-0"
+                    className="flex gap-2 items-center justify-center w-full sm:w-auto text-lg  bg-blue-800 border-opacity-0 text-white hover:bg-blue-600 py-2 px-2 sm:py-2 sm:px-3 rounded mb-2 sm:mb-0"
                     onClick={dlCV}
                   >
                     <img style={{ width: "1.25rem" }} src="./dl.svg" alt="download" />
@@ -141,7 +141,7 @@ export default function Navbar() {
               Contact
             </a>
             <button
-              className="flex items-center justify-center gap-3 sm:w-auto bg-primary-400 hover:bg-primary-500 text-white py-2 px-4 sm:py-2 sm:px-3 rounded mb-2 sm:mb-0 text-lg"
+              className="flex items-center justify-center gap-3 sm:w-auto  bg-blue-800 border-opacity-0 text-white hover:bg-blue-600 py-2 px-4 sm:py-2 sm:px-3 rounded mb-2 sm:mb-0 text-lg"
               onClick={dlCV}
             >
               <img style={{ width: "1.25rem" }} src="./dl.svg" alt="download" />

@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer style={Style} className='py-4'>
       <div className="container mx-auto text-center">
-        <p className="text-sm">&copy; JRP {new Date().getFullYear()}. All Rights Reserved.</p>
+        <p className="text-sm font-medium">&copy; JRP {new Date().getFullYear()}. All Rights Reserved.</p>
         <div className="mt-4">
           <a 
             href="https://www.facebook.com" 

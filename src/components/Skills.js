@@ -11,7 +11,7 @@ export default function Skills() {
   const aboutStyle =
     theme === "light"
       ? { backgroundColor: "#FEFAF6", color: "#000000" }
-      : { backgroundColor: "#EFECEC", color: "#000000" };
+      : { backgroundColor: "rgb(1, 0, 38)", color: "#ffffff" };
 
   const skills = [
     { source: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg", alt: "React", title: "React" },
@@ -45,7 +45,7 @@ export default function Skills() {
       const section = document.getElementById("skills");
       const rect = section.getBoundingClientRect();
       if (rect.top < window.innerHeight) {
-        setIsVisible(true); // Trigger animation when section is in view
+        setIsVisible(true);
       }
     };
 
@@ -69,7 +69,7 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className="skillsGrid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="skillsGrid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 bg-gray-400 rounded-3xl">
           {skills.map((skill, index) => (
             <div
               key={index}

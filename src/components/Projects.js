@@ -11,7 +11,7 @@ export default function Projects() {
   const Style =
     theme === "light"
       ? { backgroundColor: "#e6e6ea", color: "#000000" }
-      : { backgroundColor: "#6A0DAD", color: "#ffffff" };
+      : { backgroundColor: "#010026", color: "#ffffff" };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +34,7 @@ export default function Projects() {
           <p className="sm:text-4xl text-3xl font-semibold title-font mb-2 tracking-in-expand ">
             My{" "}
             <span
-              className={`${theme === "light" ? "text-purple-600" : "text-yellow-400"}`}
+              className="text-purple-600" 
             >
               Projects
             </span>
@@ -54,7 +54,7 @@ export default function Projects() {
               key={project.image}
               className={`sm:w-1/2 w-full p-4 animate__animated animate__fadeInUp`}
               style={{
-                animationDelay: `${(index + 1) * 0.3}s`, // Stagger the animations, increasing delay
+                animationDelay: `${(index + 1) * 0.3}s`,
               }}
             >
               <div className="flex relative mb-2">
@@ -64,7 +64,7 @@ export default function Projects() {
                   src={project.image}
                 />
                 <div className="px-8 py-10 h-72 relative w-full border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
-                  <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
+                  <h2 className="tracking-widest text-sm title-font font-medium text-purple-500 mb-1">
                     {project.subtitle}
                   </h2>
                   <h1 className="title-font text-lg font-medium text-white mb-3">
@@ -73,7 +73,7 @@ export default function Projects() {
                   <p className="leading-relaxed text-white">
                     {project.description}
                   </p>
-                  <button className="button">
+                  <button className="button border-2 border-purple-500">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
