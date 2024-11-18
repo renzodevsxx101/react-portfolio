@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import getThemeStyles from "../components/Theme";
-import { motion } from "framer-motion";
 
 
 export default function About() {
@@ -64,15 +63,7 @@ export default function About() {
           <h1 className="title-font sm:text-4xl text-2xl mb-4 font-medium">
             <span className="flex word mb-4">{typedText}</span>
           </h1>
-          <motion.div className="flex flex-col items-center sm:flex-row sm:justify-center"
-           initial="hidden"
-           whileInView="visible"
-           viewport={{ once: true, amount: 0.5 }}
-           transition={{ delay: 0.2, duration: 0.5 }}
-           variants={{
-             hidden: { opacity: 0, x: 50 },
-             visible: { opacity: 1, x:0 },
-           }}>
+          <div className="flex flex-col items-center sm:flex-row sm:justify-center">
             <a
               href="#contact"
               className="w-full sm:w-auto bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 sm:py-2 sm:px-6 rounded mb-2 sm:mb-0"
@@ -85,7 +76,7 @@ export default function About() {
             >
               View My Projects
             </a>
-          </motion.div>
+          </div>
         </div>
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
           <img
