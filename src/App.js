@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Footer from "./components/Footer";
-import LineGradient from "./components/LineGradient";
+import Services from "./components/Services";
 
 
 export default function App() {
@@ -16,6 +16,7 @@ export default function App() {
       <main className="font-sans">
         <Navbar />
         <About />
+        <Services />
         <Projects />
         <Skills />
         <Contact />

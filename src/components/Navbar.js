@@ -9,18 +9,11 @@ export default function Navbar() {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   const [activeSection, setActiveSection] = useState("about");
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   const handleSetActive = (section) => {
     setActiveSection(section);
   };
-
-  const dlCV = () => {
-    const link = document.createElement("a");
-    link.href = "./CV.pdf";
-    link.download = "Pagdanganan_JohnRenz - CV 2024.pdf";
-    link.click();
-  }
 
   const linkClass = (section) =>
     `nav-link text-lg ${theme === "light" ? "text-black" : "text-white"
@@ -51,6 +44,13 @@ export default function Navbar() {
                     About
                   </a>
                   <a
+                    href="#services"
+                    className={linkClass("services")}
+                    onClick={() => handleSetActive("services")}
+                  >
+                    Services
+                  </a>
+                  <a
                     href="#projects"
                     className={linkClass("projects")}
                     onClick={() => handleSetActive("projects")}
@@ -74,13 +74,6 @@ export default function Navbar() {
                 </div>
                 <div className="flex justify-center items-center gap-6">
                   <ToggleButton />
-                  <button
-                    className="flex gap-2 items-center justify-center w-full sm:w-auto text-lg  bg-blue-800 border-opacity-0 text-white hover:bg-blue-600 py-2 px-2 sm:py-2 sm:px-3 rounded mb-2 sm:mb-0"
-                    onClick={dlCV}
-                  >
-                    <img style={{ width: "1.25rem" }} src="./dl.svg" alt="download" />
-                    Download CV
-                  </button>
                 </div>
 
               </div>
@@ -102,7 +95,7 @@ export default function Navbar() {
       </div>
       {/* MOBILE MENU MODAL */}
       {!isAboveMediumScreens && isMenuToggled && (
-        <div className={`${theme === 'dark' ? 'bg-primary-300' : 'bg-tertiary-200'} fixed right-0 bottom-0 z-40 h-full w-4/6 drop-shadow-xl`}>
+        <div className={`${theme === 'dark' ? 'bg-primary-300' : 'bg-tertiary-200'} fixed right-0 bottom-0 z-40 h-full w-4/6 drop-shadow-xl tilt-in-right-1`}>
           {/* CLOSE ICON */}
           <div className="flex justify-end p-12">
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
@@ -118,6 +111,13 @@ export default function Navbar() {
               onClick={() => handleSetActive("about")}
             >
               About
+            </a>
+            <a
+              href="#services"
+              className={linkClass("services")}
+              onClick={() => handleSetActive("services")}
+            >
+              Services
             </a>
             <a
               href="#projects"
@@ -140,13 +140,6 @@ export default function Navbar() {
             >
               Contact
             </a>
-            <button
-              className="flex items-center justify-center gap-3 sm:w-auto  bg-blue-800 border-opacity-0 text-white hover:bg-blue-600 py-2 px-4 sm:py-2 sm:px-3 rounded mb-2 sm:mb-0 text-lg"
-              onClick={dlCV}
-            >
-              <img style={{ width: "1.25rem" }} src="./dl.svg" alt="download" />
-              Download CV
-            </button>
             <ToggleButton />
           </div>
         </div>
