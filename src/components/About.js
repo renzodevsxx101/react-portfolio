@@ -26,7 +26,7 @@ export default function About() {
   let forwards = true;
   let skip_count = 0;
   const skip_delay = 15;
-  const speed = 90;
+  const speed = 120;
 
   const wordflick = () => {
     setInterval(() => {
@@ -68,9 +68,9 @@ export default function About() {
     <section className={`${getThemeStyles(theme)} px-8 lg:pl-32 lg:pr-14 pt-10 md:pt-20 lg:pt-10 ${theme === "light" ? "" : "about-bg" }`} id="about">
       <div className="container mx-auto flex flex-col lg:flex-row items-center">
         <div className="flex-grow md:w-1/2 lg:pr-24 md:mb-16 flex flex-col mb-16 items-center lg:items-start text-center lg:text-left">
-        <h2 className="title-font sm:text-lg text-sm font-medium">Hello there,</h2>
-        <h2 className="title-font sm:text-2xl text-xl font-medium">I'm <span className="text-purple-700 font-bold">John Renz!</span></h2>
-          <h1 className="title-font sm:text-xl text-2xl mb-4 font-normal">
+        <h2 className="title-font sm:text-2xl text-sm font-medium">Hello there,</h2>
+        <h2 className="title-font sm:text-4xl text-xl font-bold">I'm <span className="text-purple-700 font-bold">John Renz!</span></h2>
+          <h1 className="title-font sm:text-2xl text-2xl mb-4 font-normal">
             <span className="flex word mb-4">{typedText}</span>
           </h1>
           <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-3">
