@@ -26,7 +26,7 @@ const Services = () => {
                     <LineGradient width="w-1/12" />
                 </div>
             </div>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-center tracking-in-expand mb-20"> I'm a Junior Developer with 1+ years of experience in software engineering, specializing in front-end development. Skilled in developing and enhancing responsive UI components, collaborating in agile environments, integrating APIs, and crafting user-centered experiences. Highly adept at both independent and collaborative projects, driven by a strong passion for continuous learning, particularly in modern front-end frameworks and techniques. Committed to building seamless and dynamic applications.
+            <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-center tracking-in-expand mb-20"> I'm a Bootstrap Developer with 1+ years of experience in software engineering, specializing in front-end development. Skilled in developing and enhancing responsive UI components, collaborating in agile environments, integrating APIs, and crafting user-centered experiences. Highly adept at both independent and collaborative projects, driven by a strong passion for continuous learning, particularly in modern front-end frameworks and techniques. Committed to building seamless and dynamic applications.
             </p>
             <div className="flex flex-col w-full">
                 <p className="sm:text-4xl text-3xl text-center font-semibold title-font mb-2 tracking-in-expand ">
