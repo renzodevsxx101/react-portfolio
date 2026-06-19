@@ -5,8 +5,8 @@ import getThemeStyles from "../components/Theme";
 
 const dlCV = () => {
   const link = document.createElement("a");
-  link.href = "./CV.pdf";
-  link.download = "Pagdanganan_JohnRenz - CV 2024.pdf";
+  link.href = "./CV2.pdf";
+  link.download = "Pagdanganan_JohnRenz - CV 2026.pdf";
   link.click();
 }
 
@@ -76,20 +76,22 @@ export default function About() {
           <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-3">
             <a
               href="#contact"
-              className="hover:bg-purple-800 hover:text-white font-medium border text-purple-600 border-purple-600 w-full sm:w-auto  py-2 px-4 sm:py-2 sm:px-6 rounded sm:mb-0"
+              className={`${theme === "light" ? "bg-purple-600 text-white hover:bg-purple-700" : "hover:bg-purple-800 hover:text-white font-medium border text-purple-600 border-purple-600"} py-2 px-6 rounded transition-all duration-300`}
             >
               Contact Me
             </a>
             <button
-              className="flex items-center justify-center gap-3 sm:w-auto  bg-blue-800 border-opacity-0 text-white hover:bg-blue-600 py-2 px-4 sm:py-2 sm:px-3 rounded mb-2 sm:mb-0 text-lg"
+              className={`${theme === "light" ? "bg-blue-700 hover:bg-blue-800" : "bg-blue-800 hover:bg-blue-600"} text-white py-2 px-6 rounded transition-all duration-300 flex items-center justify-center gap-2`}
               onClick={dlCV}
             >
-              <img style={{ width: "1.25rem" }} src="./dl.svg" alt="download" />
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
               Download CV
             </button>
           </div>
         </div>
-        <div className="lg:max-w-lg lg:w-full w-full">
+      <div className="lg:max-w-lg lg:w-full w-full">
           <img
             className="object-cover object-center"
             alt="hero"

@@ -1,13 +1,5 @@
 export const projects = [
   {
-    title: "My AIA Philippines",
-    subtitle: "React JS, SCSS, REST API Integration",
-    description:
-      "Developed various mobile responsive web pages and new features.",
-    image: "./static/gif/aia.gif",
-    link: "https://www.aia.com.ph/en/myaia/service/service.html",
-  },
-  {
     title: "JRPSerts",
     subtitle: "HTML5, CSS3, JavaScript, Tailwind CSS",
     description:
@@ -46,5 +38,41 @@ export const projects = [
       "Developed a weather app with an API to get temperature, humidity, and wind speed to a certain location.",
     image: "./static/gif/weather.gif",
     link: "https://weather-app-jr998.netlify.app/",
+  },
+  {
+    title: "Insurance Web Application",
+    subtitle: "Client Project",
+    description:
+      "Developed various mobile responsive web pages and new features for a major insurance company's customer portal. Built interactive dashboards, account management screens, and policy service pages using React JS with SCSS styling and REST API integration. Ensured cross-device compatibility and optimized performance for a seamless user experience across desktop and mobile platforms.",
+  },
+  {
+    title: "Healthcare Management System",
+    subtitle: "Client Project",
+    description:
+      "Developed a web application for clinic operations, including patient, employee, and client records, medical services, file management, financial transactions, reporting, accounting, and system settings. Implemented patient and client portals for accessing medical records, consultation history, prescriptions, laboratory results, certificates, treatment history, and outstanding balances.",
+  },
+  {
+    title: "Pharmacy and Prescription Management System",
+    subtitle: "Client Project",
+    description:
+      "Developed new features for a web application for medicine dispensing, prescription management, patient records, inventory management, and PhilHealth claims processing. Implemented mobile responsiveness across the application, print functions, and data tables with filtering and search for claims, beneficiaries, prescriptions, committed drugs, and facilities.",
+  },
+  {
+    title: "Telecommunications Platform",
+    subtitle: "Client Project",
+    description:
+      "Maintained a web application by implementing enhancements, change requests, and new features. Investigated and resolved production issues, fixed reported defects, and collaborated with team members during maintenance releases.",
+  },
+  {
+    title: "Timekeeping System",
+    subtitle: "Client Project",
+    description:
+      "Participated in the revamp of a chat application by implementing UI updates, modifying existing features, resolving reported issues, and supporting feature delivery.",
+  },
+  {
+    title: "Online Gambling Platform",
+    subtitle: "Client Project",
+    description:
+      "Maintained web applications by implementing enhancements, change requests, bug fixes, and UI updates. Developed new features, integrated frontend changes with backend APIs, and supported production releases.",
   }
 ];

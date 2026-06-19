@@ -6,7 +6,7 @@ const ToggleButton = () => {
     return (
         <button
             onClick={toggleTheme}
-            className={`relative flex items-center w-14 h-8 ${theme === "dark" ? "bg-gray-200" : "bg-gray-300"} rounded-full shadow-inner dark:bg-gray-700 transition-colors duration-300 focus:outline-none`}
+            className={`relative flex items-center w-14 h-8 ${theme === "dark" ? "bg-gray-200" : "bg-gray-400"} rounded-full shadow-md dark:bg-gray-700 transition-colors duration-300 focus:outline-none`}
         >
             {/* Toggle Slider */}
             <span

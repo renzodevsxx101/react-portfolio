@@ -10,7 +10,7 @@ export default function Projects() {
 
   const Style =
     theme === "light"
-      ? { backgroundColor: "#e6e6ea", color: "#000000" }
+      ? { backgroundColor: "#d0d0d0", color: "#000000" }
       : { backgroundColor: "#010026", color: "#ffffff" };
 
   useEffect(() => {
@@ -51,19 +51,25 @@ export default function Projects() {
         <div className="flex flex-wrap -m-4">
           {projects.map((project, index) => (
             <div
-              key={project.image}
+              key={project.title}
               className={`sm:w-1/2 w-full p-4 animate__animated animate__fadeInUp`}
               style={{
                 animationDelay: `${(index + 1) * 0.3}s`,
               }}
             >
-              <div className="flex relative mb-2">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 w-full h-72 object-cover object-center"
-                  src={project.image}
-                />
-                <div className="px-8 py-10 h-72 relative w-full border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
+              <div className="flex relative mb-2 min-h-[280px]">
+                {project.image && (
+                  <img
+                    alt="gallery"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    src={project.image}
+                  />
+                )}
+                <div
+                  className={`px-8 py-10 relative w-full border-4 border-gray-800 bg-gray-900 ${
+                    project.image ? "opacity-0 hover:opacity-100" : "opacity-100"
+                  }`}
+                >
                   <h2 className="tracking-widest text-sm title-font font-medium text-purple-500 mb-1">
                     {project.subtitle}
                   </h2>
@@ -73,25 +79,27 @@ export default function Projects() {
                   <p className="leading-relaxed text-white">
                     {project.description}
                   </p>
-                  <button className="button border-2 border-purple-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                      ></path>
-                    </svg>
-                    <div className="text">
-                      <a href={project.link}>Preview</a>
-                    </div>
-                  </button>
+                  {project.link && (
+                    <button className="button border-2 border-purple-500">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                        ></path>
+                      </svg>
+                      <div className="text">
+                        <a href={project.link}>Preview</a>
+                      </div>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
