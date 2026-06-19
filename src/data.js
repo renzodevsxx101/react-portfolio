@@ -7,14 +7,14 @@ export const projects = [
     image: "./static/gif/jrpserts.gif",
     link: "https://jrpserts.netlify.app/",
   },
-  {
-    title: "Supplies Management System",
-    subtitle: "Oracle SQL, PL/SQL, HTML5",
-    description:
-      "Developed a full stack application using Oracle APEX, SQL and PL/SQL.",
-    image: "./static/gif/sms.gif",
-    link: "https://apex.oracle.com/pls/apex/r/oracleapextraining2024/supplies-management-system/login",
-  },
+  // {
+  //   title: "Supplies Management System",
+  //   subtitle: "Oracle SQL, PL/SQL, HTML5",
+  //   description:
+  //     "Developed a full stack application using Oracle APEX, SQL and PL/SQL.",
+  //   image: "./static/gif/sms.gif",
+  //   link: "https://apex.oracle.com/pls/apex/r/oracleapextraining2024/supplies-management-system/login",
+  // },
   {
     title: "Fun88",
     subtitle: "React, TypeScript, React Carousel, Tailwind CSS",
