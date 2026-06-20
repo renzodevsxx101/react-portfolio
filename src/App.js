@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import WorkExperience from "./components/WorkExperience";
 import Footer from "./components/Footer";
 import Services from "./components/Services";
 
@@ -17,6 +18,7 @@ export default function App() {
         <Navbar />
         <About />
         <Services />
+        <WorkExperience />
         <Projects />
         <Skills />
         <Contact />

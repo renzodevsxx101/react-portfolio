@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useTheme } from "../context/ThemeContext";
 import getThemeStyles from "../components/Theme";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 const dlCV = () => {
@@ -11,9 +15,33 @@ const dlCV = () => {
 }
 
 export default function About() {
-  
+  const sectionRef = useRef(null);
+  const contentRef = useRef(null);
+
   const { theme } = useTheme();
   const [typedText, setTypedText] = useState("");
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        contentRef.current,
+        { y: 80, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.4,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
   const words = [
     "A Junior Front-End Developer based in Bulacan, Philippines.",
     "Passionate in creating amazing web apps ;) ",
@@ -65,8 +93,8 @@ export default function About() {
   }, []);
 
   return (
-    <section className={`${getThemeStyles(theme)} px-8 lg:pl-32 lg:pr-14 pt-10 md:pt-20 lg:pt-10 ${theme === "light" ? "" : "about-bg" }`} id="about">
-      <div className="container mx-auto flex flex-col lg:flex-row items-center">
+    <section ref={sectionRef} className={`${getThemeStyles(theme)} px-8 lg:pl-32 lg:pr-14 pt-10 md:pt-20 lg:pt-10 ${theme === "light" ? "" : "about-bg" }`} id="about">
+      <div ref={contentRef} className="container mx-auto flex flex-col lg:flex-row items-center">
         <div className="flex-grow md:w-1/2 lg:pr-24 md:mb-16 flex flex-col mb-16 items-center lg:items-start text-center lg:text-left">
         <h2 className="title-font sm:text-2xl text-sm font-medium">Hello there,</h2>
         <h2 className="title-font sm:text-4xl text-xl font-bold">I'm <span className="text-purple-700 font-bold">John Renz!</span></h2>

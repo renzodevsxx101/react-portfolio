@@ -51,6 +51,13 @@ export default function Navbar() {
                     Services
                   </a>
                   <a
+                    href="#experience"
+                    className={linkClass("experience")}
+                    onClick={() => handleSetActive("experience")}
+                  >
+                    Experience
+                  </a>
+                  <a
                     href="#projects"
                     className={linkClass("projects")}
                     onClick={() => handleSetActive("projects")}
@@ -118,6 +125,13 @@ export default function Navbar() {
               onClick={() => handleSetActive("services")}
             >
               Services
+            </a>
+            <a
+              href="#experience"
+              className={linkClass("experience")}
+              onClick={() => handleSetActive("experience")}
+            >
+              Experience
             </a>
             <a
               href="#projects"

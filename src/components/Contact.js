@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useTheme } from "../context/ThemeContext";
 import getThemeStyles from "../components/Theme";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
+  const sectionRef = useRef(null);
+  const mapRef = useRef(null);
+  const formRef = useRef(null);
+
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [message, setMessage] = React.useState("");
   const { theme } = useTheme();
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const st = { trigger: sectionRef.current, start: "top 85%", toggleActions: "play none none none" };
+
+      gsap.fromTo(
+        mapRef.current,
+        { x: -80, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1.3, ease: "power2.out", scrollTrigger: st }
+      );
+
+      gsap.fromTo(
+        formRef.current,
+        { x: 80, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1.3, ease: "power2.out", scrollTrigger: st }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   function encode(data) {
     return Object.keys(data)
@@ -29,13 +57,14 @@ export default function Contact() {
 
   return (
     <section
+      ref={sectionRef}
       id="contact"
       className={`${getThemeStyles(theme)} relative`}
     >
       <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap"
       >
 
-        <div className="lg:w-2/3 md:w-3/4 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative"
+        <div ref={mapRef} className="lg:w-2/3 md:w-3/4 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative"
         
         >
           <iframe
@@ -70,6 +99,7 @@ export default function Contact() {
           </div>
         </div>
         <form
+          ref={formRef}
           netlify
           name="contact"
           onSubmit={handleSubmit}
