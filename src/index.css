@@ -11,8 +11,22 @@
   font-family: "DM Sans", sans-serif;
 }
 
-body {
+html {
   overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
 }
 
 @keyframes slide-in {
