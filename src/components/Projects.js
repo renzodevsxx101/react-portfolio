@@ -77,6 +77,11 @@ export default function Projects() {
                     <h2 className="tracking-widest text-sm title-font font-medium text-purple-500 mb-1">
                       {project.subtitle}
                     </h2>
+                    {project.tag && (
+                      <span className="self-start mb-2 px-2 py-0.5 text-xs font-semibold rounded-full bg-amber-400 text-gray-900">
+                        {project.tag}
+                      </span>
+                    )}
                     <h1 className="title-font text-lg font-medium text-white mb-3">
                       {project.title}
                     </h1>
@@ -98,6 +103,11 @@ export default function Projects() {
                   <h2 className="tracking-widest text-sm title-font font-medium text-purple-500 mb-1">
                     {project.subtitle}
                   </h2>
+                  {project.tag && (
+                    <span className="self-start mb-2 px-2 py-0.5 text-xs font-semibold rounded-full bg-amber-400 text-gray-900">
+                      {project.tag}
+                    </span>
+                  )}
                   <h1 className="title-font text-lg font-medium text-white mb-3">
                     {project.title}
                   </h1>
