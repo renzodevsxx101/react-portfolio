@@ -8,6 +8,14 @@ export const projects = [
     link: "https://johnrenzp-e-learning-platform.netlify.app/",
   },
     {
+    title: "Water District Customer Portal",
+    subtitle: "Next.js, MUI (Material UI), React, Supabase, AI Chatbot, Authentication",
+    description:
+      "Developed a customer portal for water utility services with user authentication, billing records, services, and complaints management, dashboard analytics, Google OAuth integration, and AI Chatbot Integration.",
+    image: "./static/gif/water-district.png",
+    link: "https://water-district-portal.netlify.app/",
+  },
+  {
     title: "ThinkBit Clone",
     subtitle: "Vue 3, TypeScript, Tailwind CSS, Vite, GSAP",
     description:
