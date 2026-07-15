@@ -1,4 +1,21 @@
 export const projects = [
+
+      {
+    title: "Water District Customer Portal",
+    subtitle: "Next.js, MUI (Material UI), React, Supabase, AI Chatbot, Authentication",
+    description:
+      "Developed a customer portal for water utility services with user authentication, billing records, services, and complaints management, dashboard analytics, Google OAuth integration, and AI Chatbot Integration.",
+    image: "./static/gif/water-district.png",
+    link: "https://water-district-portal.netlify.app/",
+  },
+  {
+    title: "Studio Ghibli Films",
+    subtitle: "Vue 3, Vite, Bootstrap 5, Font Awesome, REST API",
+    description:
+      "Built a film catalog app for Studio Ghibli featuring movie listings, descriptions, ratings, and release year filters using a REST API.",
+    image: "./static/gif/ghibli-films.png",
+    link: "https://jrp-ghibli-films.netlify.app/",
+  },
     {
     title: "E-Learning Platform",
     subtitle: "Vue 3, TypeScript, Tailwind CSS, Vite, GSAP",
@@ -6,14 +23,6 @@ export const projects = [
       "Developed an interactive e-learning platform featuring course management, quizzes, and progress tracking.",
     image: "./static/gif/e-learning.gif",
     link: "https://johnrenzp-e-learning-platform.netlify.app/",
-  },
-    {
-    title: "Water District Customer Portal",
-    subtitle: "Next.js, MUI (Material UI), React, Supabase, AI Chatbot, Authentication",
-    description:
-      "Developed a customer portal for water utility services with user authentication, billing records, services, and complaints management, dashboard analytics, Google OAuth integration, and AI Chatbot Integration.",
-    image: "./static/gif/water-district.png",
-    link: "https://water-district-portal.netlify.app/",
   },
   {
     title: "ThinkBit Clone",
