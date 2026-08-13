@@ -3,7 +3,9 @@ import { useTheme } from "../context/ThemeContext";
 import getThemeStyles from "../components/Theme";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// no package needed — uses fetch directly
+import { LocationMarkerIcon, MailIcon, PaperAirplaneIcon } from "@heroicons/react/solid";
+import { Button, Card, SectionHeader, themeTokens } from "./ui";
+// No package needed; uses fetch directly.
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,6 +24,7 @@ export default function Contact() {
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   const { theme } = useTheme();
+  const t = themeTokens(theme);
 
   useEffect(() => {
     if (status === "success" || status === "error") {
@@ -111,67 +114,88 @@ export default function Contact() {
   }
 
   const inputClass = (field) =>
-    `w-full bg-gray-500 rounded border text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out ${
+    `w-full rounded-md border px-3 py-3 text-base outline-none transition-colors duration-200 focus:ring-2 ${
       errors[field]
-        ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-        : "border-gray-700 focus:border-indigo-500 focus:ring-indigo-900"
+        ? "border-red-500 focus:border-red-500"
+        : t.input
     }`;
 
   return (
     <section
       ref={sectionRef}
       id="contact"
-      className={`${getThemeStyles(theme)} relative`}
+      className={`${getThemeStyles(theme)} relative px-6 py-20`}
     >
-      <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
-        <div ref={mapRef} className="lg:w-2/3 md:w-3/4 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-          <iframe
-            width="100%"
-            height="100%"
-            title="map"
-            className="absolute inset-0"
-            frameBorder={0}
-            marginHeight={0}
-            marginWidth={0}
-            style={{ filter: "opacity(0.7)" }}
-            src="https://www.google.com/maps/embed/v1/place?q=Calumpit,+Bulacan,+Philippines&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-          />
-          <div className="bg-gray-600 relative flex flex-wrap py-6 px-6 rounded shadow-md">
-            <div className="lg:w-1/2 px-6">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">ADDRESS</h2>
-              <p className="mt-1 text-white">Calumpit, Bulacan, Philippines</p>
+      <div className="mx-auto max-w-7xl">
+        <SectionHeader
+          eyebrow="Contact"
+          title="Let's build something"
+          highlight="useful"
+          description="Have a role, feature, or web app in mind? Send a quick message and I'll get back to you."
+          theme={theme}
+        />
+        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <Card ref={mapRef} theme={theme} className="overflow-hidden">
+            <div className="relative h-[360px]">
+              <iframe
+                width="100%"
+                height="100%"
+                title="map"
+                className="absolute inset-0"
+                frameBorder={0}
+                marginHeight={0}
+                marginWidth={0}
+                style={{ filter: "none" }}
+                src="https://www.google.com/maps/embed/v1/place?q=Calumpit,+Bulacan,+Philippines&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+              />
             </div>
-            <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">EMAIL</h2>
-              <a className="text-indigo-400 leading-relaxed">
-                pagdanganan.johnrenz <br />@gmail.com
-              </a>
+            <div className="grid gap-4 p-6 sm:grid-cols-2">
+              <div className="flex gap-3">
+                <LocationMarkerIcon className={`h-6 w-6 flex-shrink-0 ${t.accent}`} />
+                <div>
+                  <h3 className="text-sm font-bold">Address</h3>
+                  <p className={`mt-1 text-sm ${t.mutedText}`}>Calumpit, Bulacan, Philippines</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <MailIcon className={`h-6 w-6 flex-shrink-0 ${t.accent}`} />
+                <div>
+                  <h3 className="text-sm font-bold">Email</h3>
+                  <a href="mailto:pagdanganan.johnrenz@gmail.com" className={`mt-1 block break-all text-sm ${t.accent}`}>
+                    pagdanganan.johnrenz@gmail.com
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </Card>
 
-        <form
-          ref={formRef}
-          netlify
-          name="contact"
-          onSubmit={handleSubmit}
-          className="lg:w-1/3 md:w-3/4 flex flex-col mr-auto md:ml-auto w-full md:py-8 mt-8 md:mt-0"
-        >
-          <h2 className="sm:text-4xl text-3xl mb-1 font-medium title-font">Hire Me</h2>
+          <Card
+            as="form"
+            ref={formRef}
+            netlify
+            name="contact"
+            onSubmit={handleSubmit}
+            theme={theme}
+            className="p-6"
+          >
+            <h2 className="mb-2 text-3xl font-bold">Hire Me</h2>
+            <p className={`mb-6 text-sm leading-6 ${t.mutedText}`}>
+              Tell me what you need, what stack you're using, or where the feature currently needs support.
+            </p>
 
-          {status === "success" && (
-            <div className="bg-green-600 text-white px-4 py-3 rounded mb-4 text-sm">
-              Message sent successfully! I'll get back to you soon.
-            </div>
-          )}
-          {status === "error" && (
-            <div className="bg-red-600 text-white px-4 py-3 rounded mb-4 text-sm">
-              Something went wrong. Please try again or email me directly.
-            </div>
-          )}
+            {status === "success" && (
+              <div className={`mb-4 rounded-md border px-4 py-3 text-sm font-semibold ${theme === "light" ? "theme-alert-success-light" : "theme-alert-success-dark"}`}>
+                Message sent successfully! I'll get back to you soon.
+              </div>
+            )}
+            {status === "error" && (
+              <div className={`mb-4 rounded-md border px-4 py-3 text-sm font-semibold ${theme === "light" ? "theme-alert-error-light" : "theme-alert-error-dark"}`}>
+                Something went wrong. Please try again or email me directly.
+              </div>
+            )}
 
           <div className="relative mb-4">
-            <label htmlFor="name" className="leading-7 text-sm">Name</label>
+            <label htmlFor="name" className="mb-2 block text-sm font-semibold">Name</label>
             <input
               type="text"
               id="name"
@@ -183,7 +207,7 @@ export default function Contact() {
             {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
           </div>
           <div className="relative mb-4">
-            <label htmlFor="email" className="leading-7 text-sm">Email</label>
+            <label htmlFor="email" className="mb-2 block text-sm font-semibold">Email</label>
             <input
               type="email"
               id="email"
@@ -195,7 +219,7 @@ export default function Contact() {
             {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
           </div>
           <div className="relative mb-4">
-            <label htmlFor="message" className="leading-7 text-sm">Message</label>
+            <label htmlFor="message" className="mb-2 block text-sm font-semibold">Message</label>
             <textarea
               id="message"
               name="message"
@@ -206,14 +230,17 @@ export default function Contact() {
             />
             {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
           </div>
-          <button
+          <Button
+            theme={theme}
             type="submit"
             disabled={status === "sending"}
-            className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            className="mt-2 w-full"
           >
+            <PaperAirplaneIcon className="h-5 w-5" />
             {status === "sending" ? "Sending..." : "Submit"}
-          </button>
-        </form>
+          </Button>
+          </Card>
+        </div>
       </div>
     </section>
   );

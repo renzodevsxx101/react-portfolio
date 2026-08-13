@@ -1,5 +1,6 @@
 module.exports = {
-  content: [
+  mode: 'jit',
+  purge: [
     './src/**/*.{html,js,jsx,ts,tsx}', // Update this based on your project structure
     './public/index.html',
   ],

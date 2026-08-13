@@ -13,6 +13,7 @@
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   width: 100%;
   overflow-x: hidden;
   position: relative;
+  background: #f8fafc;
 }
 
 #root {
@@ -67,17 +69,75 @@ body {
   min-height: 280px;
 }
 
-.border-gradient-purple {
-  border: 4px solid transparent;
-  border-radius: 20px;
-  background-image: linear-gradient(45deg, #7c3aed, #9333ea, #9b4d96);
+.logo {
+  height: 48px;
+  width: 48px;
+  display: flex;
+  border-radius: 9999px;
+  object-fit: cover;
 }
 
-.logo {
-  height: 60px;
-  width: 60px;
-  display: flex;
-  border-radius: 3rem;
+.brand-logo {
+  position: relative;
+  display: inline-flex;
+  height: 46px;
+  width: 58px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+}
+
+.brand-logo-light {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 42%),
+    #09090b;
+  border-color: #09090b;
+  color: #ffffff;
+}
+
+.brand-logo-dark {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.45), transparent 46%),
+    #f5d08a;
+  border-color: rgba(245, 208, 138, 0.68);
+  color: rgba(0, 0, 0, 0.87);
+  box-shadow: 0 8px 22px rgba(245, 208, 138, 0.16);
+}
+
+.brand-logo-glyph {
+  position: relative;
+  z-index: 1;
+  height: 30px;
+  width: 45px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.brand-logo-frame {
+  opacity: 0.62;
+  stroke-width: 3.4;
+}
+
+.brand-logo-mono {
+  stroke-width: 4.2;
+}
+
+.brand-logo-accent {
+  position: absolute;
+  right: 7px;
+  bottom: 6px;
+  height: 3px;
+  width: 16px;
+  border-radius: 9999px;
+  background-color: currentColor;
+  opacity: 0.35;
 }
 
 .nav-link {
@@ -87,7 +147,16 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: rgb(183, 8, 222);
+  color: #09090b;
+}
+
+.theme-page-dark .nav-link:hover,
+.theme-page-dark .nav-link.active,
+.theme-muted-dark .nav-link:hover,
+.theme-muted-dark .nav-link.active,
+.theme-nav-dark .nav-link:hover,
+.theme-nav-dark .nav-link.active {
+  color: #f5d08a;
 }
 
 .skills {
@@ -107,8 +176,7 @@ body {
 }
 
 .gradient-line{
-  background: linear-gradient(to right, #FFFF00, #8A2BE2);
-
+  background: linear-gradient(to right, #09090b, #71717a, #e4e4e7);
 }
 
 @media screen and (max-width: 640px) {
@@ -139,6 +207,382 @@ body {
 
 .icon:hover {
   transform: scale(1.1);
+}
+
+.section-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(9, 9, 11, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(9, 9, 11, 0.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.theme-page-light {
+  background-color: #f8fafc;
+  color: #09090b;
+}
+
+.theme-page-dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.theme-muted-light {
+  background-color: #eef2f7;
+  color: #09090b;
+}
+
+.theme-muted-dark {
+  background-color: #181818;
+  color: #ffffff;
+}
+
+.theme-card-light {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+.theme-card-dark {
+  background-color: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+}
+
+.theme-project-card-light {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.1);
+}
+
+.theme-project-card-dark {
+  background-color: #1e1e1e;
+  border-color: rgba(245, 208, 138, 0.26);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.38);
+}
+
+.theme-project-media-light {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.theme-project-media-dark {
+  background-color: #242424;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.theme-project-tech-light {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.theme-project-tech-dark {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.theme-soft-light {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+}
+
+.theme-soft-dark {
+  background-color: #242424;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.theme-nav-light {
+  background-color: rgba(255, 255, 255, 0.92);
+  border-color: #cbd5e1;
+}
+
+.theme-nav-dark {
+  background-color: rgba(18, 18, 18, 0.92);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.theme-text-muted-light {
+  color: #334155;
+}
+
+.theme-text-muted-dark {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.theme-text-subtle-light {
+  color: #475569;
+}
+
+.theme-text-subtle-dark {
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.theme-accent-text {
+  color: #09090b;
+}
+
+.theme-accent-text-dark {
+  color: #f5d08a;
+}
+
+.theme-warm-text {
+  color: #09090b;
+}
+
+.theme-accent-bg {
+  background-color: #09090b;
+}
+
+.theme-accent-bg:hover {
+  background-color: #1f2937;
+}
+
+.theme-warm-bg {
+  background-color: #09090b;
+}
+
+.theme-accent-soft-light {
+  background-color: #eef2ff;
+  color: #09090b;
+  border-color: #c7d2fe;
+}
+
+.theme-accent-soft-dark {
+  background-color: rgba(245, 208, 138, 0.12);
+  color: #f5d08a;
+  border-color: rgba(245, 208, 138, 0.3);
+}
+
+.theme-cream-soft {
+  background-color: #f8fafc;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+.theme-input-light {
+  background-color: #ffffff;
+  border-color: #94a3b8;
+  color: #09090b;
+}
+
+.theme-input-dark {
+  background-color: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.32);
+  color: #ffffff;
+}
+
+.theme-input-light::placeholder {
+  color: #64748b;
+}
+
+.theme-input-dark::placeholder {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.theme-input-light:focus {
+  border-color: #09090b;
+  box-shadow: 0 0 0 3px rgba(9, 9, 11, 0.12);
+}
+
+.theme-input-dark:focus {
+  border-color: #f5d08a;
+  box-shadow: 0 0 0 3px rgba(245, 208, 138, 0.2);
+}
+
+.theme-focus:focus {
+  box-shadow: 0 0 0 3px rgba(9, 9, 11, 0.18);
+}
+
+.theme-focus-dark:focus {
+  box-shadow: 0 0 0 3px rgba(245, 208, 138, 0.26);
+}
+
+.theme-hover-accent:hover {
+  background-color: #e2e8f0;
+}
+
+.theme-hover-accent-dark:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.theme-hover-border:hover {
+  border-color: #334155;
+}
+
+.theme-hover-border-dark:hover {
+  border-color: rgba(245, 208, 138, 0.54);
+}
+
+.theme-badge {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.theme-outline {
+  border-color: #94a3b8;
+  color: #09090b;
+}
+
+.theme-outline:hover {
+  background-color: #e2e8f0;
+  color: #09090b;
+}
+
+.theme-badge.theme-cream-soft {
+  background-color: #eef2f7;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.theme-tech-chip-light {
+  background-color: #eef2f7;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+.hero-portrait-light {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12);
+}
+
+.hero-portrait-media-light {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+}
+
+.theme-tech-chip-dark {
+  background-color: rgba(245, 208, 138, 0.11);
+  border-color: rgba(245, 208, 138, 0.3);
+  color: #f8e3b3;
+}
+
+.theme-accent-text-dark {
+  color: #f5d08a;
+}
+
+.theme-warm-text-dark {
+  color: #f5d08a;
+}
+
+.theme-accent-bg-dark {
+  background-color: #f5d08a;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.theme-accent-bg-dark:hover {
+  background-color: #e6bb6a;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.theme-warm-bg-dark {
+  background-color: #f5d08a;
+}
+
+.theme-badge-dark {
+  background-color: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.theme-outline-dark {
+  border-color: rgba(245, 208, 138, 0.62);
+  color: #f5d08a;
+}
+
+.theme-outline-dark:hover {
+  background-color: rgba(245, 208, 138, 0.11);
+  color: #f5d08a;
+}
+
+.theme-sahara-border {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-sahara-icon {
+  color: #f5d08a;
+}
+
+.theme-sahara-ring {
+  --tw-ring-color: rgba(245, 208, 138, 0.42);
+}
+
+.theme-alert-success-light {
+  background-color: #ecfdf5;
+  border-color: #34d399;
+  color: #065f46;
+}
+
+.theme-alert-success-dark {
+  background-color: rgba(46, 125, 50, 0.22);
+  border-color: rgba(102, 187, 106, 0.55);
+  color: #a5d6a7;
+}
+
+.theme-alert-error-light {
+  background-color: #fef2f2;
+  border-color: #f87171;
+  color: #991b1b;
+}
+
+.theme-alert-error-dark {
+  background-color: rgba(211, 47, 47, 0.22);
+  border-color: rgba(239, 83, 80, 0.55);
+  color: #ffcdd2;
+}
+
+.back-to-top-button {
+  transform: translateY(12px) scale(0.94);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    visibility 220ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.back-to-top-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+}
+
+.back-to-top-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px) scale(0.94);
+  visibility: hidden;
+}
+
+.tech-stack-slide {
+  animation: tech-stack-slide-in 280ms ease both;
+}
+
+@keyframes tech-stack-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .button {
@@ -206,48 +650,6 @@ body {
 
 /* ----------------------------------------------
  * Generated by Animista on 2024-11-18 16:23:35
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation tracking-in-expand
- * ----------------------------------------
- */
- @-webkit-keyframes tracking-in-expand {
-  0% {
-    letter-spacing: -0.5em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes tracking-in-expand {
-  0% {
-    letter-spacing: -0.5em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.tracking-in-expand {
-	-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-}
-
-/* ----------------------------------------------
- * Generated by Animista on 2024-11-18 16:24:9
  * Licensed under FreeBSD License.
  * See http://animista.net/license for more info. 
  * w: http://animista.net, t: @cssanimista

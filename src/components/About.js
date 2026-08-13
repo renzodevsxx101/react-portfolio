@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import getThemeStyles from "../components/Theme";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { DownloadIcon, MailIcon, SparklesIcon } from "@heroicons/react/solid";
+import { Badge, Button, Card, themeTokens } from "./ui";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,12 +16,29 @@ const dlCV = () => {
   link.click();
 }
 
+const techStackGroups = [
+  {
+    category: "Frontend",
+    techs: ["HTML", "CSS", "JavaScript", "AJAX", "jQuery", "React", "React Router", "Axios", "Vue", "Vue Router", "Pinia", "Bootstrap", "Tailwind"],
+  },
+  {
+    category: "Backend",
+    techs: ["Laravel", "Spring Boot"],
+  },
+  {
+    category: "Databases",
+    techs: ["Oracle SQL", "MySQL", "Oracle Database"],
+  },
+];
+
 export default function About() {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
 
   const { theme } = useTheme();
-  const [typedText, setTypedText] = useState("");
+  const [activeTechIndex, setActiveTechIndex] = useState(0);
+  const t = themeTokens(theme);
+  const activeTechGroup = techStackGroups[activeTechIndex];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -42,95 +61,146 @@ export default function About() {
 
     return () => ctx.revert();
   }, []);
-  const words = [
-    "A Junior Front-End Developer based in Bulacan, Philippines.",
-    "Passionate in creating amazing web apps ;) ",
-    "Let's connect!"
-  ];
-  let part = "";
-  let i = 0;
-  let offset = 0;
-  const len = words.length;
-  let forwards = true;
-  let skip_count = 0;
-  const skip_delay = 15;
-  const speed = 120;
-
-  const wordflick = () => {
-    setInterval(() => {
-      if (forwards) {
-        if (offset >= words[i].length) {
-          ++skip_count;
-          if (skip_count === skip_delay) {
-            forwards = false;
-            skip_count = 0;
-          }
-        }
-      } else {
-        if (offset === 0) {
-          forwards = true;
-          i++;
-          offset = 0;
-          if (i >= len) {
-            i = 0;
-          }
-        }
-      }
-      part = words[i].substr(0, offset);
-      if (skip_count === 0) {
-        if (forwards) {
-          offset++;
-        } else {
-          offset--;
-        }
-      }
-      setTypedText(part);
-    }, speed);
-  };
 
   useEffect(() => {
-    wordflick();
+    const interval = setInterval(() => {
+      setActiveTechIndex((current) => (current + 1) % techStackGroups.length);
+    }, 2600);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <section ref={sectionRef} className={`${getThemeStyles(theme)} px-8 lg:pl-32 lg:pr-14 pt-10 md:pt-20 lg:pt-10 ${theme === "light" ? "" : "about-bg" }`} id="about">
-      <div ref={contentRef} className="container mx-auto flex flex-col lg:flex-row items-center">
-        <div className="flex-grow md:w-1/2 lg:pr-24 md:mb-16 flex flex-col mb-16 items-center lg:items-start text-center lg:text-left">
-        <h2 className="title-font sm:text-2xl text-sm font-medium">Hello there,</h2>
-        <h2 className="title-font sm:text-4xl text-xl font-bold">I'm <span className="text-purple-700 font-bold">John Renz!</span></h2>
-          <h1 className="title-font sm:text-2xl text-2xl mb-4 font-normal">
-            <span className="flex word mb-4">{typedText}</span>
+    <section ref={sectionRef} className={`${getThemeStyles(theme)} section-shell px-5 pt-20 pb-14 sm:px-6 sm:pt-24 sm:pb-20 lg:px-12 lg:pt-28`} id="about">
+      <div ref={contentRef} className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+        <div className="flex w-full flex-col items-center text-center lg:max-w-3xl lg:items-start lg:text-left lg:pr-10">
+          <Badge theme={theme} className="mb-4">
+            <SparklesIcon className="mr-2 h-4 w-4" />
+            Frontend development, open to junior full-stack or junior software roles
+          </Badge>
+          <h1 className="max-w-4xl text-3xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            Building clean frontend experiences and practical web application features.
           </h1>
-          <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-3">
-            <a
-              href="#contact"
-              className={`${theme === "light" ? "bg-purple-600 text-white hover:bg-purple-700" : "hover:bg-purple-800 hover:text-white font-medium border text-purple-600 border-purple-600"} py-2 px-6 rounded transition-all duration-300`}
-            >
+          <p className={`mt-4 text-lg font-semibold sm:text-xl ${t.accent}`}>
+            Web Developer based in Bulacan, Philippines, open to junior full-stack or junior software roles.
+          </p>
+          <p className={`mt-3 max-w-2xl text-base leading-7 sm:mt-4 sm:text-lg ${t.mutedText}`}>
+            I'm John Renz Pagdanganan, a web developer from Bulacan with experience building responsive interfaces, integrating APIs, and supporting database-backed CRUD workflows. My main strength is frontend development, and I am also open to junior full-stack or junior software roles.
+          </p>
+          <div className="hidden lg:mt-6 lg:flex lg:items-start lg:gap-3">
+            <Button theme={theme} as="a" href="#contact">
+              <MailIcon className="h-5 w-5" />
               Contact Me
-            </a>
-            <button
-              className={`${theme === "light" ? "bg-blue-700 hover:bg-blue-800" : "bg-blue-800 hover:bg-blue-600"} text-white py-2 px-6 rounded transition-all duration-300 flex items-center justify-center gap-2`}
-              onClick={dlCV}
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
+            </Button>
+            <Button theme={theme} variant="outline" onClick={dlCV}>
+              <DownloadIcon className="h-5 w-5" />
               Download CV
-            </button>
+            </Button>
+          </div>
+          <div className="hidden lg:mt-8 lg:grid lg:w-full lg:max-w-2xl lg:grid-cols-2 lg:gap-3">
+            {[
+              ["3+", "Years exp."],
+              ["15+", "Projects"],
+            ].map(([value, label]) => (
+              <Card key={label} theme={theme} className="p-4 text-center">
+                <p className="text-2xl font-bold">{value}</p>
+                <p className={`mt-1 text-xs font-semibold uppercase ${t.subtleText}`}>{label}</p>
+              </Card>
+            ))}
+            <Card theme={theme} className="col-span-2 p-4 text-left">
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-sm font-bold">Tech Stack Expertise</p>
+                <div className="flex gap-1.5" aria-label="Tech stack slides">
+                  {techStackGroups.map((group, index) => (
+                    <button
+                      key={group.category}
+                      type="button"
+                      onClick={() => setActiveTechIndex(index)}
+                      className={`h-2.5 w-2.5 rounded-full border transition ${index === activeTechIndex ? t.accentBg : t.badge}`}
+                      aria-label={`Show ${group.category} stack`}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div key={activeTechGroup.category} className={`tech-stack-slide mt-3 min-h-[132px] rounded-md border p-3 ${t.softCard}`}>
+                <p className={`text-xs font-bold uppercase ${t.subtleText}`}>{activeTechGroup.category}</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {activeTechGroup.techs.map((tech) => (
+                    <span key={tech} className={`${t.badge} inline-flex items-center rounded-md border px-3 py-1.5 text-xs font-semibold`}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
-      <div className="lg:max-w-lg lg:w-full w-full">
-          <img
-            className="object-cover object-center"
-            alt="hero"
-            src="me.png"
-            style={{
-              filter:
-                theme === "dark"
-                  ? "drop-shadow(0 0 15px rgba(169, 169, 169, 0.5))"
-                  : "drop-shadow(0 0 30px rgba(0, 0, 0, 0.8))",
-            }}
-          />
+        <div className="relative flex w-full max-w-[320px] flex-shrink-0 justify-center sm:max-w-md lg:ml-auto lg:max-w-[460px] lg:justify-end xl:max-w-[500px]">
+          <div className={`w-full rounded-lg border p-3 ${theme === "light" ? "hero-portrait-light" : "theme-card-dark"}`}>
+            <div className={`overflow-hidden rounded-md ${theme === "light" ? "hero-portrait-media-light" : "theme-page-dark"}`}>
+              <img
+                className="mx-auto h-auto w-full object-cover object-center"
+                alt="John Renz Pagdanganan"
+                src="me.png"
+              />
+            </div>
+            <div className="mt-3 flex items-center justify-between gap-3">
+              <div>
+                <p className="text-sm font-bold">John Renz</p>
+                <p className={`text-xs ${t.subtleText}`}>Web Developer</p>
+              </div>
+              <Badge theme={theme}>Bulacan, PH</Badge>
+            </div>
+          </div>
+        </div>
+        <div className="flex w-full flex-col items-center text-center lg:hidden">
+          <div className="mt-2 flex flex-col items-center gap-3 sm:mt-6 sm:flex-row">
+            <Button theme={theme} as="a" href="#contact">
+              <MailIcon className="h-5 w-5" />
+              Contact Me
+            </Button>
+            <Button theme={theme} variant="outline" onClick={dlCV}>
+              <DownloadIcon className="h-5 w-5" />
+              Download CV
+            </Button>
+          </div>
+          <div className="mt-6 grid w-full max-w-2xl grid-cols-2 gap-3 sm:mt-8">
+            {[
+              ["3+", "Years exp."],
+              ["15+", "Projects"],
+            ].map(([value, label]) => (
+              <Card key={label} theme={theme} className="p-4 text-center">
+                <p className="text-2xl font-bold">{value}</p>
+                <p className={`mt-1 text-xs font-semibold uppercase ${t.subtleText}`}>{label}</p>
+              </Card>
+            ))}
+            <Card theme={theme} className="col-span-2 p-4 text-left">
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-sm font-bold">Tech Stack Expertise</p>
+                <div className="flex gap-1.5" aria-label="Tech stack slides">
+                  {techStackGroups.map((group, index) => (
+                    <button
+                      key={group.category}
+                      type="button"
+                      onClick={() => setActiveTechIndex(index)}
+                      className={`h-2.5 w-2.5 rounded-full border transition ${index === activeTechIndex ? t.accentBg : t.badge}`}
+                      aria-label={`Show ${group.category} stack`}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div key={activeTechGroup.category} className={`tech-stack-slide mt-3 min-h-[132px] rounded-md border p-3 ${t.softCard}`}>
+                <p className={`text-xs font-bold uppercase ${t.subtleText}`}>{activeTechGroup.category}</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {activeTechGroup.techs.map((tech) => (
+                    <span key={tech} className={`${t.badge} inline-flex items-center rounded-md border px-3 py-1.5 text-xs font-semibold`}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

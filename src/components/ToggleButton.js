@@ -1,19 +1,21 @@
 import React from 'react';
 import { useTheme } from "../context/ThemeContext";
+import { themeTokens } from "./ui";
 
 const ToggleButton = () => {
     const { theme, toggleTheme } = useTheme();
+    const t = themeTokens(theme);
+
     return (
         <button
             onClick={toggleTheme}
-            className={`relative flex items-center w-14 h-8 ${theme === "dark" ? "bg-gray-200" : "bg-gray-400"} rounded-full shadow-md dark:bg-gray-700 transition-colors duration-300 focus:outline-none`}
+            className={`relative flex h-8 w-14 items-center rounded-full border transition-colors duration-300 focus:outline-none ${t.focus} ${theme === "dark" ? "theme-soft-dark" : "theme-soft-light"}`}
+            aria-label="Toggle theme"
         >
-            {/* Toggle Slider */}
             <span
-                className={`absolute w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center ${theme === "dark" ? "translate-x-6" : "translate-x-1"
+                className={`absolute flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-md transform transition-transform duration-300 ${theme === "dark" ? "translate-x-6" : "translate-x-1"
                     }`}
             >
-                {/* Moon Icon (Dark Mode) */}
                 {theme === "dark" && (
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +32,6 @@ const ToggleButton = () => {
                         />
                     </svg>
                 )}
-                {/* Sun Icon (Light Mode) */}
                 {theme === "light" && (
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

@@ -7,28 +7,27 @@ import optimization from "../assets/img/optimization.png"
 import LineGradient from "../components/LineGradient";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Card, SectionHeader, themeTokens } from "./ui";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
-  { img: frontend, alt: "frontend", title: "Front-End Development" },
-  { img: design, alt: "design", title: "Custom Web Design" },
-  { img: responsive, alt: "responsive", title: "Responsive Web Design" },
-  { img: optimization, alt: "optimization", title: "Website Optimization" },
+  { img: frontend, alt: "frontend development", title: "Frontend Development", copy: "Building responsive interfaces, reusable components, routed pages, forms, dashboards, and user-facing product features." },
+  { img: design, alt: "interface", title: "Interface Implementation", copy: "Translating designs and requirements into clean, readable interfaces with attention to usability and accessibility." },
+  { img: responsive, alt: "responsive", title: "Responsive Web Design", copy: "Creating mobile-first layouts that stay readable, usable, and polished across screen sizes." },
+  { img: optimization, alt: "api integration", title: "API Integration", copy: "Connecting frontend features to APIs, handling service responses, and supporting data-driven application flows." },
+  { img: responsive, alt: "database", title: "Databases and CRUD Basics", copy: "Hands-on foundation with database-backed features and create, read, update, and delete workflows." },
+  { img: optimization, alt: "software roles", title: "Role Availability", copy: "Seeking frontend roles, while also open to junior full-stack or junior software roles." },
 ];
 
 const Services = () => {
     const { theme } = useTheme();
+    const t = themeTokens(theme);
     const sectionRef = useRef(null);
     const headerRef = useRef(null);
     const descRef = useRef(null);
     const subHeaderRef = useRef(null);
     const cardsRef = useRef([]);
-
-    const Style =
-        theme === "light"
-            ? { backgroundColor: "#d0d0d0", color: "#000000" }
-            : { backgroundColor: "#010026", color: "#ffffff" };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -43,27 +42,27 @@ const Services = () => {
           tl.fromTo(
             headerRef.current,
             { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }
+            { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" }
           )
           .fromTo(
             descRef.current,
             { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" },
-            "-=0.4"
+            { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" },
+            "-=0.22"
           )
           .fromTo(
             subHeaderRef.current,
             { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" },
-            "-=0.4"
+            { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" },
+            "-=0.2"
           );
 
           cardsRef.current.forEach((card) => {
             tl.fromTo(
               card,
-              { y: 80, opacity: 0, scale: 0.9 },
-              { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" },
-              "+=0.1"
+              { y: 36, opacity: 0, scale: 0.96 },
+              { y: 0, opacity: 1, scale: 1, duration: 0.38, ease: "power2.out" },
+              "-=0.2"
             );
           });
         }, sectionRef);
@@ -72,42 +71,32 @@ const Services = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} id="services" style={Style} className="max-w-full mx-auto relative z-0 sm:px-16 px-6 sm:py-16 py-10">
-            <div ref={headerRef} className="flex flex-col w-full mb-6">
-                <p className="sm:text-4xl text-3xl text-center font-semibold title-font mb-2">
-                    About
-                    <span className="text-purple-600"> Me
-                    </span>
-                </p>
-                <div className="flex justify-center mb-4">
-                    <LineGradient width="w-1/12" />
-                </div>
+        <section ref={sectionRef} id="services" className={`${t.mutedPage} section-shell mx-auto px-5 py-14 sm:px-16 sm:py-20`}>
+          <div className="relative z-10 mx-auto max-w-7xl">
+            <div ref={headerRef}>
+              <SectionHeader
+                eyebrow="About me"
+                title="Frontend development with"
+                highlight="room to grow full-stack"
+                description="Web developer with 3 years of web development experience building responsive interfaces and product features. My main strength is frontend development, and I also have working knowledge of API integration, backend basics, databases, and CRUD flows. I am open to junior full-stack or junior software roles."
+                theme={theme}
+              />
             </div>
-            <p ref={descRef} className="lg:w-2/3 mx-auto leading-relaxed text-base text-center mb-20">Front-End Developer with 3 years of experience building responsive, accessible web applications. Skilled in translating UI/UX designs into clean, efficient code with cross-browser compatibility and mobile-first design. Collaborative team player in agile environments working closely with designers,  project managers, QAs, and backend developers.
-            </p>
-            <div ref={subHeaderRef} className="flex flex-col w-full">
-                <p className="sm:text-4xl text-3xl text-center font-semibold title-font mb-2">
-                    What{" "}
-                    <span className="text-purple-600">I do?</span>
-                </p>
-                <div className="flex justify-center">
-                    <LineGradient width="w-1/12" />
-                </div>
+            <div ref={subHeaderRef} className="mb-6 flex justify-center sm:mb-8">
+              <LineGradient width="w-32" />
             </div>
-            <div className='mt-16 lg:flex-row flex flex-col gap-10'>
+            <div className='grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3'>
                 {services.map((s, i) => (
-                  <div key={i} ref={(el) => (cardsRef.current[i] = el)} className='lg:min-w-[250px] w-full'>
-                    <div className='w-full p-[1px] rounded-[20px] shadow-card border-gradient-purple'>
-                      <div className={`${theme === "light" ? "bg-tertiary-300" : "bg-primary-400"} rounded-xl py-5 px-10 min-h-[280px] flex justify-evenly items-center flex-col`}>
-                        <img src={s.img} alt={s.alt} className='w-16 h-16 object-contain' />
-                        <h3 className={`${theme === "light" ? "text-gray-900" : "text-white"} text-[20px] text-center font-bold`}>
-                          {s.title}
-                        </h3>
-                      </div>
+                  <Card key={i} ref={(el) => (cardsRef.current[i] = el)} theme={theme} className={`group flex min-h-[260px] flex-col items-center p-6 text-center transition duration-300 hover:-translate-y-1 sm:items-start sm:text-left ${t.hoverBorder}`}>
+                    <div className={`${t.accentSoft} mb-6 flex h-14 w-14 items-center justify-center rounded-md border`}>
+                      <img src={s.img} alt={s.alt} className='h-9 w-9 object-contain' />
                     </div>
-                  </div>
+                    <h3 className="text-xl font-bold">{s.title}</h3>
+                    <p className={`mt-3 flex-1 text-sm leading-6 ${t.mutedText}`}>{s.copy}</p>
+                  </Card>
                 ))}
             </div>
+          </div>
         </section>
     );
 };
