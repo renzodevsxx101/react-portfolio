@@ -16,6 +16,7 @@ const experiences = [
       "Participate in planning and provide input to work estimations.",
       "Develop components according to specifications and established standards.",
       "Debug and troubleshoot front-end issues across responsive web applications.",
+      "Write and run unit tests to validate component behavior and support stable releases.",
       "Collaborate with UI/UX designers, backend developers, and Business Analysts to translate wireframes, APIs, and requirements into functional web applications.",
       "Participate in Agile Scrum activities including daily stand-ups, sprint reviews, and retrospectives.",
     ],

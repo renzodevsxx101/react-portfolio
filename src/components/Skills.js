@@ -30,10 +30,6 @@ const skills = [
   { source: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg", title: "Postman" },
   { source: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original-wordmark.svg", title: "Vue JS" },
   { source: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain-wordmark.svg", title: "Axios" },
-  { title: "AJAX" },
-  { title: "React Router" },
-  { title: "Vue Router" },
-  { title: "Pinia" },
   { source: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original-wordmark.svg", title: "Laravel" },
   { source: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/thymeleaf/thymeleaf-original-wordmark.svg", title: "Thymeleaf" },
   { source: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vagrant/vagrant-original-wordmark.svg", title: "Vagrant" },
@@ -49,26 +45,10 @@ const skills = [
   { source: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238B5CF6'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z'/%3E%3C/svg%3E", title: "Codex" },
 ];
 
-const expertise = [
-  {
-    title: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "AJAX", "jQuery", "React", "React Router", "Axios", "Vue", "Vue Router", "Pinia", "Bootstrap", "Tailwind CSS"],
-  },
-  {
-    title: "Backend",
-    items: ["Laravel", "Spring Boot"],
-  },
-  {
-    title: "Databases",
-    items: ["Oracle SQL", "MySQL", "Oracle Database"],
-  },
-];
-
 export default function Skills() {
   const { theme } = useTheme();
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
-  const expertiseRef = useRef(null);
   const gridRef = useRef(null);
   const t = themeTokens(theme);
 
@@ -80,13 +60,6 @@ export default function Skills() {
         headerRef.current,
         { y: 60, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.3, ease: "power2.out", scrollTrigger: st }
-      );
-
-      gsap.fromTo(
-        expertiseRef.current.children,
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, stagger: 0.08, ease: "power2.out",
-          scrollTrigger: st }
       );
 
       gsap.fromTo(
@@ -112,21 +85,6 @@ export default function Skills() {
             icon={<ChipIcon className={`h-10 w-10 ${t.accent}`} />}
             theme={theme}
           />
-        </div>
-
-        <div ref={expertiseRef} className="mb-8 grid gap-4 md:grid-cols-3">
-          {expertise.map((group) => (
-            <div key={group.title} className={`rounded-lg border p-5 ${t.card}`}>
-              <h3 className="text-lg font-bold">{group.title}</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <span key={item} className={`${t.badge} inline-flex items-center rounded-md border px-3 py-1.5 text-xs font-semibold`}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
         </div>
 
         <div ref={gridRef} className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">

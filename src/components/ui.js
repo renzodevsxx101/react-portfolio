@@ -25,7 +25,17 @@ export const themeTokens = (theme) => {
   };
 };
 
-export function SectionHeader({ eyebrow, title, highlight, description, icon, theme = "light" }) {
+export function SectionHeader({
+  eyebrow,
+  title,
+  highlight,
+  description,
+  icon,
+  theme = "light",
+  headingRef,
+  descriptionRef,
+  titleClassName = "",
+}) {
   const t = themeTokens(theme);
 
   return (
@@ -36,11 +46,11 @@ export function SectionHeader({ eyebrow, title, highlight, description, icon, th
           {eyebrow}
         </p>
       )}
-      <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
+      <h2 ref={headingRef} className={`text-3xl font-bold leading-tight sm:text-4xl ${titleClassName}`}>
         {title} {highlight && <span className={t.warm}>{highlight}</span>}
       </h2>
       {description && (
-        <p className={`mx-auto mt-4 max-w-2xl text-base leading-7 ${t.mutedText}`}>
+        <p ref={descriptionRef} className={`mx-auto mt-4 max-w-2xl text-base leading-7 ${t.mutedText}`}>
           {description}
         </p>
       )}
