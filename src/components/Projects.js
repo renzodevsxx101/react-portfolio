@@ -1,5 +1,6 @@
-import { CodeIcon, ExternalLinkIcon } from "@heroicons/react/solid";
-import React, { useEffect, useRef } from "react";
+import { ArrowLeftIcon, ArrowRightIcon, CodeIcon, ExternalLinkIcon } from "@heroicons/react/solid";
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { projects } from "../data";
 import { useTheme } from "../context/ThemeContext";
 import gsap from "gsap";
@@ -8,7 +9,14 @@ import { Badge, Button, SectionHeader, themeTokens } from "./ui";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Projects() {
+const PROJECTS_PER_PAGE = 4;
+
+const tabs = [
+  { key: "personal", label: "Personal" },
+  { key: "client", label: "Client" },
+];
+
+export default function Projects({ showAll = false }) {
   const { theme } = useTheme();
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
@@ -18,8 +26,19 @@ export default function Projects() {
   const projectMedia = theme === "light" ? "theme-project-media-light" : "theme-project-media-dark";
   const projectTech = theme === "light" ? "theme-project-tech-light" : "theme-project-tech-dark";
   const techChip = theme === "light" ? "theme-tech-chip-light" : "theme-tech-chip-dark";
+  const [activeTab, setActiveTab] = useState("personal");
+
+  const filteredProjects = projects.filter((p) => p.type === activeTab);
+  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, PROJECTS_PER_PAGE);
 
   useEffect(() => {
+    if (showAll) {
+      window.scrollTo(0, 0);
+    }
+  }, [showAll]);
+
+  useEffect(() => {
+    cardsRef.current = [];
     const ctx = gsap.context(() => {
       const st = {
         trigger: sectionRef.current,
@@ -50,24 +69,54 @@ export default function Projects() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [activeTab]);
 
   return (
-    <section ref={sectionRef} id="projects" className={`${t.mutedPage} section-shell px-6 py-20`}>
-      <div className="relative z-10 mx-auto max-w-7xl">
+    <section ref={sectionRef} id="projects" className={`${t.mutedPage} section-shell px-6 ${showAll ? "pb-20 pt-4 sm:pt-6" : "py-20"}`}>
+      <div className="relative z-10 mx-auto max-w-7xl pb-16">
         <div ref={headerRef}>
           <SectionHeader
             eyebrow="Selected work"
             title="My"
             highlight="Projects"
-            description="A mix of production work, client systems, and hands-on builds across web apps, API-driven features, database-backed workflows, and responsive interfaces."
             icon={<CodeIcon className={`h-10 w-10 ${t.accent}`} />}
             theme={theme}
           />
         </div>
 
+        {showAll && (
+          <div className="mb-6 flex justify-start">
+            <Button theme={theme} as={Link} to="/" variant="ghost" className="gap-2 px-3 text-sm">
+              <ArrowLeftIcon className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </div>
+        )}
+
+        <div className="mb-10 flex justify-center">
+          <div className={`inline-flex gap-1 rounded-lg border p-1 ${t.softCard}`}>
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`rounded-md px-5 py-2 text-sm font-semibold transition ${
+                  activeTab === tab.key ? t.accentBg : t.mutedText
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {activeTab === "client" && (
+          <p className={`mb-6 text-center text-xs font-semibold uppercase tracking-wide ${t.mutedText}`}>
+            Note: <span className={`${t.accent}`}>Confidential</span> — project names and previews are hidden
+          </p>
+        )}
+
         <div className="grid gap-6 lg:grid-cols-2">
-          {projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <article
               key={project.title}
               ref={(el) => (cardsRef.current[index] = el)}
@@ -84,12 +133,13 @@ export default function Projects() {
               )}
               <div className="flex flex-1 flex-col p-6 sm:p-7">
                 <div className="mb-5 flex flex-wrap gap-2">
-                  {project.tag && <Badge theme={theme}>{project.tag}</Badge>}
                   <Badge theme={theme} className="theme-cream-soft">
-                    {project.image ? "Live build" : "Client work"}
+                    {project.type === "personal" ? "Personal" : "Client"}
                   </Badge>
                 </div>
-                <h3 className="text-2xl font-bold leading-tight">{project.title}</h3>
+                <h3 className="text-2xl font-bold leading-tight">
+                  {project.title}
+                </h3>
                 {project.subtitle && (
                   <div className={`${projectTech} mt-4 flex flex-wrap gap-2 rounded-md border`}>
                     {project.subtitle.split(",").map((tech) => (
@@ -123,6 +173,15 @@ export default function Projects() {
             </article>
           ))}
         </div>
+
+        {!showAll && filteredProjects.length > PROJECTS_PER_PAGE && (
+          <div className="mt-6 flex justify-center">
+            <Button theme={theme} as={Link} to="/projects">
+              View More Projects
+              <ArrowRightIcon className="h-5 w-5" />
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

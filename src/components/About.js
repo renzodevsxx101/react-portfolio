@@ -110,8 +110,9 @@ export default function About() {
 
   useEffect(() => {
     const words = [
-      "Front-End Developer based in Bulacan, Philippines.",
-      "Open to front-end or junior full-stack roles.",
+      "I'm a Front-End Developer",
+      "Junior Full-Stack Developer",
+      "Junior Software Engineer",
     ];
     let wordIndex = 0;
     let offset = 0;
@@ -175,7 +176,7 @@ export default function About() {
                 <img
                   className="hero-plain-image hero-plain-image-desktop"
                   alt="John Renz Pagdanganan"
-                  src="static/img/pic-lightened.png"
+                  src="static/img/casual.JPG"
                 />
               </div>
             </div>
@@ -195,7 +196,7 @@ export default function About() {
                 <img
                   className="hero-plain-image"
                   alt="John Renz Pagdanganan"
-                  src="static/img/pic-lightened.png"
+                  src="static/img/casual2.JPG"
                 />
               </div>
               <div className="mt-5">

@@ -3,7 +3,7 @@ import { useTheme } from "../context/ThemeContext";
 import getThemeStyles from "../components/Theme";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { LocationMarkerIcon, MailIcon, PaperAirplaneIcon } from "@heroicons/react/solid";
+import { MailIcon, PaperAirplaneIcon } from "@heroicons/react/solid";
 import { Button, Card, SectionHeader, themeTokens } from "./ui";
 // No package needed; uses fetch directly.
 
@@ -16,7 +16,7 @@ const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
 export default function Contact() {
   const sectionRef = useRef(null);
-  const mapRef = useRef(null);
+  const detailsRef = useRef(null);
   const formRef = useRef(null);
 
   const [form, setForm] = useState(initial);
@@ -38,7 +38,7 @@ export default function Contact() {
       const st = { trigger: sectionRef.current, start: "top 85%", toggleActions: "play none none none" };
 
       gsap.fromTo(
-        mapRef.current,
+        detailsRef.current,
         { x: -80, opacity: 0 },
         { x: 0, opacity: 1, duration: 1.3, ease: "power2.out", scrollTrigger: st }
       );
@@ -127,36 +127,19 @@ export default function Contact() {
       className={`${getThemeStyles(theme)} relative px-6 py-20`}
     >
       <div className="mx-auto max-w-7xl">
-        <SectionHeader
-          eyebrow="Contact"
-          title="Let's build something"
-          highlight="useful"
-          description="Have a role, feature, or web app in mind? Send a quick message and I'll get back to you."
-          theme={theme}
-        />
+          <SectionHeader
+            eyebrow="Contact"
+            title="Let's build something"
+            highlight="useful"
+            theme={theme}
+          />
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <Card ref={mapRef} theme={theme} className="overflow-hidden">
-            <div className="relative h-[360px]">
-              <iframe
-                width="100%"
-                height="100%"
-                title="map"
-                className="absolute inset-0"
-                frameBorder={0}
-                marginHeight={0}
-                marginWidth={0}
-                style={{ filter: "none" }}
-                src="https://www.google.com/maps/embed/v1/place?q=Calumpit,+Bulacan,+Philippines&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-              />
-            </div>
-            <div className="grid gap-4 p-6 sm:grid-cols-2">
-              <div className="flex gap-3">
-                <LocationMarkerIcon className={`h-6 w-6 flex-shrink-0 ${t.accent}`} />
-                <div>
-                  <h3 className="text-sm font-bold">Address</h3>
-                  <p className={`mt-1 text-sm ${t.mutedText}`}>Calumpit, Bulacan, Philippines</p>
-                </div>
-              </div>
+          <Card ref={detailsRef} theme={theme} className="p-6">
+            <h2 className="mb-2 text-3xl font-bold">Get in touch</h2>
+            <p className={`mb-6 text-sm leading-6 ${t.mutedText}`}>
+              I am available for frontend roles, portfolio work, and web app builds.
+            </p>
+            <div className="grid gap-4">
               <div className="flex gap-3">
                 <MailIcon className={`h-6 w-6 flex-shrink-0 ${t.accent}`} />
                 <div>

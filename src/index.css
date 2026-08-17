@@ -824,3 +824,24 @@ body {
 .about-bg{
   background-image: url('./assets/img/bg.jpg');
 }
+
+.services-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.services-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.services-scroll::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+.services-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.8);
+}
+
+.exp-logo-fallback span {
+  display: flex !important;
+}

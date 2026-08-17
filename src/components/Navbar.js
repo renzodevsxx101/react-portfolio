@@ -8,7 +8,6 @@ import { Button, themeTokens } from "./ui";
 
 const links = [
   ["about", "About"],
-  ["services", "Services"],
   ["experience", "Experience"],
   ["projects", "Projects"],
   ["skills", "Skills"],
