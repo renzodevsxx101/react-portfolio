@@ -1,6 +1,15 @@
 export const projects = [
 
-      {
+  {
+    title: "My Folio",
+    subtitle: "Figma MCP, Wireframe to Code, Vue, Tailwind CSS, GSAP, Netlify",
+    tag: "Personal Project",
+    description:
+      "Translated a Figma wireframe into a responsive portfolio website using Figma MCP, focusing on clean layout implementation, reusable sections, and polished presentation.",
+    image: "./static/gif/my-folio-screenshot.png",
+    link: "https://my-folio-jrp.netlify.app/",
+  },
+  {
     title: "Water District Customer Portal",
     subtitle: "Next.js, MUI (Material UI), React, Supabase, AI Chatbot, Authentication",
     description:

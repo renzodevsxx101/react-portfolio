@@ -214,18 +214,6 @@ body {
   overflow: hidden;
 }
 
-.section-shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(9, 9, 11, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(9, 9, 11, 0.025) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: linear-gradient(to bottom, black, transparent 78%);
-}
-
 .aspect-video {
   aspect-ratio: 16 / 9;
 }
