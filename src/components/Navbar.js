@@ -14,18 +14,18 @@ const links = [
   ["contact", "Contact"],
 ];
 
-function LogoMark({ theme }) {
+function LogoMark() {
   return (
-    <span className={`brand-logo ${theme === "light" ? "brand-logo-light" : "brand-logo-dark"}`} aria-hidden="true">
-      <svg className="brand-logo-glyph" viewBox="0 0 72 48" role="presentation" focusable="false">
-        <path className="brand-logo-frame" d="M19 14 8 24l11 10" />
-        <path className="brand-logo-frame" d="M53 14 64 24 53 34" />
-        <path className="brand-logo-frame" d="M42 10 30 38" />
-        <path className="brand-logo-mono" d="M25 15h10c5 0 8 3 8 7s-3 7-8 7H25" />
-        <path className="brand-logo-mono" d="M25 15v18" />
-        <path className="brand-logo-mono" d="M39 29l7 6" />
-      </svg>
-      <span className="brand-logo-accent" />
+    <span
+      className="text-3xl font-black tracking-tighter"
+      style={{
+        background: "linear-gradient(135deg, #f5d08a, #d8a469, #f5d08a)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        WebkitTextStroke: "1px rgba(217,119,6,0.3)",
+      }}
+    >
+      JRP
     </span>
   );
 }
@@ -55,7 +55,7 @@ export default function Navbar() {
         <div className="mx-auto flex w-11/12 max-w-7xl items-center justify-between py-3">
           <div className="flex w-full items-center justify-between gap-8">
             <a href="#about" className="flex items-center gap-3" onClick={() => handleSetActive("about")} aria-label="John Renz home">
-              <LogoMark theme={theme} />
+              <LogoMark />
             </a>
             {isAboveMediumScreens ?
               <div className="flex items-center justify-end gap-6">

@@ -88,11 +88,12 @@ function ExperienceCard({ exp, index, isLast, theme, isExpanded, onToggle }) {
       {/* Timeline connector */}
       <div className="flex flex-col items-center">
         {/* Logo */}
-        <div className={`relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border-2 ${t.softCard} sm:h-16 sm:w-16`} style={{ borderColor: isExpanded ? "var(--tw-accent, #D97706)" : undefined }}>
+        <div className={`relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border-2 bg-white ${t.softCard} sm:h-16 sm:w-16`} style={{ borderColor: isExpanded ? "var(--tw-accent, #D97706)" : undefined }}>
           <img
             src={exp.logo}
             alt={`${exp.company} logo`}
-            className="h-9 w-9 object-contain sm:h-10 sm:w-10"
+            className="h-9 w-9 object-contain p-1 sm:h-10 sm:w-10"
+            style={{ backgroundColor: "#fff" }}
             onError={(e) => {
               e.target.style.display = "none";
               e.target.parentElement.classList.add("exp-logo-fallback");
