@@ -72,8 +72,16 @@ export default function Projects({ showAll = false }) {
   }, [activeTab]);
 
   return (
-    <section ref={sectionRef} id="projects" className={`${t.mutedPage} section-shell px-6 ${showAll ? "pb-20 pt-4 sm:pt-6" : "py-20"}`}>
+    <section ref={sectionRef} id="projects" className={`${t.page} section-shell px-6 ${showAll ? "pb-20 pt-4 sm:pt-6" : "py-20"}`}>
       <div className="relative z-10 mx-auto max-w-7xl pb-16">
+               {showAll && (
+          <div className="mb-6 flex justify-start">
+            <Button theme={theme} as={Link} to="/" variant="ghost" className="gap-2 px-3 text-sm">
+              <ArrowLeftIcon className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </div>
+        )}
         <div ref={headerRef}>
           <SectionHeader
             eyebrow="Selected work"
@@ -84,14 +92,7 @@ export default function Projects({ showAll = false }) {
           />
         </div>
 
-        {showAll && (
-          <div className="mb-6 flex justify-start">
-            <Button theme={theme} as={Link} to="/" variant="ghost" className="gap-2 px-3 text-sm">
-              <ArrowLeftIcon className="h-4 w-4" />
-              Back to Home
-            </Button>
-          </div>
-        )}
+ 
 
         <div className="mb-10 flex justify-center">
           <div className={`inline-flex gap-1 rounded-lg border p-1 ${t.softCard}`}>

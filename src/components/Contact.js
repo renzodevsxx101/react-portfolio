@@ -134,23 +134,6 @@ export default function Contact() {
             theme={theme}
           />
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <Card ref={detailsRef} theme={theme} className="p-6">
-            <h2 className="mb-2 text-3xl font-bold">Get in touch</h2>
-            <p className={`mb-6 text-sm leading-6 ${t.mutedText}`}>
-              I am available for frontend roles, portfolio work, and web app builds.
-            </p>
-            <div className="grid gap-4">
-              <div className="flex gap-3">
-                <MailIcon className={`h-6 w-6 flex-shrink-0 ${t.accent}`} />
-                <div>
-                  <h3 className="text-sm font-bold">Email</h3>
-                  <a href="mailto:pagdanganan.johnrenz@gmail.com" className={`mt-1 block break-all text-sm ${t.accent}`}>
-                    pagdanganan.johnrenz@gmail.com
-                  </a>
-                </div>
-              </div>
-            </div>
-          </Card>
 
           <Card
             as="form"

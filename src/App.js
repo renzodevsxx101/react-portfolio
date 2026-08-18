@@ -10,7 +10,6 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import WorkExperience from "./components/WorkExperience";
 import Footer from "./components/Footer";
-import Services from "./components/Services";
 
 function AppRoutes() {
   const { pathname } = useLocation();
@@ -29,7 +28,6 @@ function AppRoutes() {
         <Route path="/">
           <div>
             <About />
-            <Services />
             <WorkExperience />
             <Projects />
             <Skills />

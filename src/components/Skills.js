@@ -100,7 +100,7 @@ export default function Skills() {
   }, [activeTab]);
 
   return (
-    <section ref={sectionRef} id="skills" className={`${t.page} px-6 py-20`}>
+    <section ref={sectionRef} id="skills" className={`${t.mutedPage} px-6 py-20`}>
       <div className="mx-auto flex max-w-7xl flex-col justify-center">
         <div ref={headerRef}>
           <SectionHeader

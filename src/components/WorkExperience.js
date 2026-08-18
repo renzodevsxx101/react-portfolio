@@ -14,7 +14,7 @@ const experiences = [
     logo: "https://thinkbitsolutions.com/wp-content/uploads/2025/06/logo.png",
     period: "Jan 2025 - Present",
     duration: "Current",
-    tags: ["Vue.js",  "jQuery", "AJAX", "SASS/SCSS", "Bootstrap", "Tailwind CSS","MySQL", "Laravel", "Spring Boot", "RESTful API Integration", "Agile/Scrum", "Unit Testing"],
+    tags: ["Vue.js",  "jQuery", "AJAX", "SASS/SCSS", "Bootstrap", "Tailwind CSS","MySQL", "Laravel", "Spring Boot", "RESTful API Integration", "Agile/Scrum", "Unit Testing", "CI/CD Pipelines"],
     description: [
       "Participate in planning and provide input to work estimations.",
       "Develop components according to specifications and established standards.",
@@ -30,7 +30,7 @@ const experiences = [
     logo: "/static/img/cpi-logo.jpg",
     period: "Sept 2023 - Dec 2024",
     duration: "1 yr 4 mos",
-    tags: ["React.js", "SCSS", "jQuery", "Oracle SQL", "Spring Boot", "Bootstrap", "AJAX", "Responsive Web Design", "Agile"],
+    tags: ["React.js", "SCSS", "jQuery", "Oracle SQL", "Spring Boot", "RESTful API Integration", "Bootstrap", "AJAX", "Responsive Web Design", "Agile"],
     description: [
       "Developed responsive and interactive web interfaces.",
       "Optimized front-end performance for speed and scalability.",
@@ -212,7 +212,7 @@ export default function WorkExperience() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="experience" className={`${t.page} px-6 py-20`}>
+    <section ref={sectionRef} id="experience" className={`${t.mutedPage} px-6 py-20`}>
       <div className="mx-auto max-w-7xl">
         <div ref={headerRef}>
           <SectionHeader

@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { useTheme } from "../context/ThemeContext";
-import { ArrowRightIcon } from "@heroicons/react/solid";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SectionHeader, Button, themeTokens } from "./ui";
+import { SectionHeader, themeTokens } from "./ui";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,18 +50,6 @@ const Services = () => {
                 description="Front-End Developer and Junior Full-Stack Engineer with 3 years of experience building responsive, user-friendly web applications. Experienced in developing and maintaining web applications for both local and international clients."
                 theme={theme}
               />
-            </div>
-            <div className="text-center">
-              <Button
-                as="a"
-                href="/about"
-                theme={theme}
-                variant="outline"
-                className="whitespace-nowrap px-6 text-sm"
-              >
-                View More
-                <ArrowRightIcon className="h-4 w-4" />
-              </Button>
             </div>
           </div>
         </section>
