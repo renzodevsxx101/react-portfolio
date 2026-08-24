@@ -1,7 +1,7 @@
-// src/App.js
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch, useLocation } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
+import Hero from "./components/Hero";
 import About from "./components/About";
 import AboutMePage from "./components/AboutMePage";
 import Contact from "./components/Contact";
@@ -27,10 +27,11 @@ function AppRoutes() {
         </Route>
         <Route path="/">
           <div>
-            <About />
-            <WorkExperience />
+            <Hero />
             <Projects />
+            <WorkExperience />
             <Skills />
+            {/* <About /> */}
             <Contact />
           </div>
         </Route>

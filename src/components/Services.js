@@ -41,7 +41,7 @@ const Services = () => {
 
     return (
         <section ref={sectionRef} id="about-me" className={`${t.mutedPage} section-shell mx-auto px-5 py-14 sm:px-16 sm:py-20`}>
-          <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="relative z-10 mx-auto max-w-6xl">
             <div ref={headerRef}>
               <SectionHeader
                 descriptionRef={descRef}

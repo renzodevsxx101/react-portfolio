@@ -13,15 +13,16 @@ export const themeTokens = (theme) => {
     subtleText: isLight ? "theme-text-subtle-light" : "theme-text-subtle-dark",
     input: isLight ? "theme-input-light" : "theme-input-dark",
     accent: isLight ? "theme-accent-text" : "theme-accent-text-dark",
-    accentBg: isLight ? "theme-accent-bg text-white" : "theme-accent-bg-dark",
+    accentBg: isLight ? "theme-accent-bg" : "theme-accent-bg-dark",
     accentSoft: isLight ? "theme-accent-soft-light" : "theme-accent-soft-dark",
     warm: isLight ? "theme-warm-text" : "theme-warm-text-dark",
-    warmBg: isLight ? "theme-warm-bg" : "theme-warm-bg-dark",
+    warmBg: isLight ? "theme-warm-bg" : "theme-warm-bg",
     badge: isLight ? "theme-badge" : "theme-badge-dark",
     focus: isLight ? "theme-focus" : "theme-focus-dark",
     hoverAccent: isLight ? "theme-hover-accent" : "theme-hover-accent-dark",
     hoverBorder: isLight ? "theme-hover-border" : "theme-hover-border-dark",
     outline: isLight ? "border theme-outline" : "border theme-outline-dark",
+    border: isLight ? "border-surface-200" : "border-surface-700",
   };
 };
 
@@ -42,15 +43,15 @@ export function SectionHeader({
     <div className="mx-auto mb-12 max-w-3xl text-center">
       {icon && <div className="mb-4 flex justify-center">{icon}</div>}
       {eyebrow && (
-        <p className={`mb-3 text-xs font-bold uppercase ${t.accent}`}>
+        <p className={`mb-3 text-xs font-bold uppercase tracking-widest ${t.accent}`}>
           {eyebrow}
         </p>
       )}
-      <h2 ref={headingRef} className={`text-3xl font-bold leading-tight sm:text-4xl ${titleClassName}`}>
-        {title} {highlight && <span className={t.warm}>{highlight}</span>}
+      <h2 ref={headingRef} className={`font-heading text-3xl font-bold leading-tight sm:text-4xl ${titleClassName}`}>
+        {title} {highlight && <span className={t.accent}>{highlight}</span>}
       </h2>
       {description && (
-        <p ref={descriptionRef} className={`mx-auto mt-4 max-w-2xl text-base leading-7 ${t.mutedText}`}>
+        <p ref={descriptionRef} className={`mx-auto mt-4 max-w-2xl text-base leading-relaxed ${t.mutedText}`}>
           {description}
         </p>
       )}
@@ -62,19 +63,18 @@ export function Button({ as = "button", children, className = "", variant = "pri
   const Component = as;
   const t = themeTokens(theme);
   const variants = {
-    primary: `${t.accentBg} border-transparent shadow-lg`,
+    primary: `${t.accentBg} border-transparent shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]`,
     secondary:
       theme === "light"
-        ? "border-gray-900 bg-gray-900 text-white hover:bg-gray-800"
-        : "border-white border-opacity-20 bg-white bg-opacity-10 text-white hover:bg-opacity-20",
-    outline: t.outline,
-    ghost:
-      `border-transparent text-current ${t.hoverAccent}`,
+        ? "border-surface-900 bg-surface-900 text-white hover:bg-surface-800 hover:scale-[1.02] active:scale-[0.98]"
+        : "border-surface-600 bg-surface-700 text-surface-100 hover:bg-surface-600 hover:scale-[1.02] active:scale-[0.98]",
+    outline: `${t.outline} hover:scale-[1.02] active:scale-[0.98]`,
+    ghost: `border-transparent text-current ${t.hoverAccent}`,
   };
 
   return (
     <Component
-      className={`inline-flex h-11 items-center justify-center gap-2 rounded-md border px-5 text-sm font-semibold transition duration-200 focus:outline-none ${t.focus} disabled:pointer-events-none disabled:opacity-60 ${variants[variant]} ${className}`}
+      className={`inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:ring-offset-2 ${t.focus} disabled:pointer-events-none disabled:opacity-60 cursor-pointer ${variants[variant]} ${className}`}
       {...props}
     >
       {children}
@@ -89,7 +89,7 @@ export const Card = React.forwardRef(function Card(
   const Component = as;
   const t = themeTokens(theme);
   return (
-    <Component ref={ref} className={`rounded-lg border ${t.card} ${className}`} {...props}>
+    <Component ref={ref} className={`rounded-xl border ${t.card} ${className}`} {...props}>
       {children}
     </Component>
   );
@@ -99,7 +99,7 @@ export function Badge({ children, className = "", theme = "light" }) {
   const t = themeTokens(theme);
 
   return (
-    <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${t.badge} ${className}`}>
+    <span className={`inline-flex items-center rounded-md border px-2.5 py-1 text-xs font-medium ${t.badge} ${className}`}>
       {children}
     </span>
   );

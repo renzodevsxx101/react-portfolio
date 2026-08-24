@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
-import getThemeStyles from "../components/Theme";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MailIcon, PaperAirplaneIcon } from "@heroicons/react/solid";
+import { PaperAirplaneIcon } from "@heroicons/react/solid";
 import { Button, Card, SectionHeader, themeTokens } from "./ui";
-// No package needed; uses fetch directly.
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,14 +19,14 @@ export default function Contact() {
 
   const [form, setForm] = useState(initial);
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [status, setStatus] = useState("idle");
 
   const { theme } = useTheme();
   const t = themeTokens(theme);
 
   useEffect(() => {
     if (status === "success" || status === "error") {
-      const timer = setTimeout(() => setStatus("idle"), 3000);
+      const timer = setTimeout(() => setStatus("idle"), 4000);
       return () => clearTimeout(timer);
     }
   }, [status]);
@@ -39,14 +37,14 @@ export default function Contact() {
 
       gsap.fromTo(
         detailsRef.current,
-        { x: -80, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1.3, ease: "power2.out", scrollTrigger: st }
+        { x: -40, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1, ease: "power2.out", scrollTrigger: st }
       );
 
       gsap.fromTo(
         formRef.current,
-        { x: 80, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1.3, ease: "power2.out", scrollTrigger: st }
+        { x: 40, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1, ease: "power2.out", scrollTrigger: st }
       );
     }, sectionRef);
 
@@ -114,9 +112,9 @@ export default function Contact() {
   }
 
   const inputClass = (field) =>
-    `w-full rounded-md border px-3 py-3 text-base outline-none transition-colors duration-200 focus:ring-2 ${
+    `w-full rounded-lg border px-3.5 py-2.5 text-sm outline-none transition-all duration-200 ${
       errors[field]
-        ? "border-red-500 focus:border-red-500"
+        ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
         : t.input
     }`;
 
@@ -124,17 +122,16 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className={`${getThemeStyles(theme)} relative px-6 py-20`}
+      className={`${t.page} relative px-6 py-20`}
     >
-      <div className="mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="Contact"
-            title="Let's build something"
-            highlight="useful"
-            theme={theme}
-          />
+      <div className="mx-auto max-w-6xl">
+        <SectionHeader
+          eyebrow="Contact"
+          title="Let's build something"
+          highlight="useful"
+          theme={theme}
+        />
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-
           <Card
             as="form"
             ref={formRef}
@@ -144,67 +141,67 @@ export default function Contact() {
             theme={theme}
             className="p-6"
           >
-            <h2 className="mb-2 text-3xl font-bold">Hire Me</h2>
-            <p className={`mb-6 text-sm leading-6 ${t.mutedText}`}>
+            <h2 className="font-heading mb-2 text-2xl font-semibold">Hire Me</h2>
+            <p className={`mb-5 text-sm leading-relaxed ${t.mutedText}`}>
               Tell me what you need, what stack you're using, or where the feature currently needs support.
             </p>
 
             {status === "success" && (
-              <div className={`mb-4 rounded-md border px-4 py-3 text-sm font-semibold ${theme === "light" ? "theme-alert-success-light" : "theme-alert-success-dark"}`}>
+              <div className={`mb-4 rounded-lg border px-4 py-3 text-sm font-medium ${theme === "light" ? "border-emerald-200 bg-emerald-50 text-emerald-700" : "border-emerald-800 bg-emerald-900/30 text-emerald-400"}`}>
                 Message sent successfully! I'll get back to you soon.
               </div>
             )}
             {status === "error" && (
-              <div className={`mb-4 rounded-md border px-4 py-3 text-sm font-semibold ${theme === "light" ? "theme-alert-error-light" : "theme-alert-error-dark"}`}>
+              <div className={`mb-4 rounded-lg border px-4 py-3 text-sm font-medium ${theme === "light" ? "border-red-200 bg-red-50 text-red-700" : "border-red-800 bg-red-900/30 text-red-400"}`}>
                 Something went wrong. Please try again or email me directly.
               </div>
             )}
 
-          <div className="relative mb-4">
-            <label htmlFor="name" className="mb-2 block text-sm font-semibold">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              className={inputClass("name")}
-            />
-            {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
-          </div>
-          <div className="relative mb-4">
-            <label htmlFor="email" className="mb-2 block text-sm font-semibold">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              className={inputClass("email")}
-            />
-            {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
-          </div>
-          <div className="relative mb-4">
-            <label htmlFor="message" className="mb-2 block text-sm font-semibold">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              className={inputClass("message")}
-              rows={5}
-            />
-            {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
-          </div>
-          <Button
-            theme={theme}
-            type="submit"
-            disabled={status === "sending"}
-            className="mt-2 w-full"
-          >
-            <PaperAirplaneIcon className="h-5 w-5" />
-            {status === "sending" ? "Sending..." : "Submit"}
-          </Button>
+            <div className="relative mb-3">
+              <label htmlFor="name" className="mb-1.5 block text-sm font-medium">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                className={inputClass("name")}
+              />
+              {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
+            </div>
+            <div className="relative mb-3">
+              <label htmlFor="email" className="mb-1.5 block text-sm font-medium">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                className={inputClass("email")}
+              />
+              {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
+            </div>
+            <div className="relative mb-3">
+              <label htmlFor="message" className="mb-1.5 block text-sm font-medium">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                className={inputClass("message")}
+                rows={4}
+              />
+              {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
+            </div>
+            <Button
+              theme={theme}
+              type="submit"
+              disabled={status === "sending"}
+              className="mt-2 w-full"
+            >
+              <PaperAirplaneIcon className="h-4 w-4" />
+              {status === "sending" ? "Sending..." : "Submit"}
+            </Button>
           </Card>
         </div>
       </div>

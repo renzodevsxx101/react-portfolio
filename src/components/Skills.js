@@ -84,14 +84,14 @@ export default function Skills() {
 
       gsap.fromTo(
         headerRef.current,
-        { y: 60, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.3, ease: "power2.out", scrollTrigger: st }
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: "power2.out", scrollTrigger: st }
       );
 
       gsap.fromTo(
         gridRef.current.children,
-        { y: 60, opacity: 0, scale: 0.92 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.08, ease: "power2.out",
+        { y: 30, opacity: 0, scale: 0.95 },
+        { y: 0, opacity: 1, scale: 1, duration: 0.6, stagger: 0.04, ease: "power2.out",
           scrollTrigger: st }
       );
     }, sectionRef);
@@ -101,23 +101,23 @@ export default function Skills() {
 
   return (
     <section ref={sectionRef} id="skills" className={`${t.mutedPage} px-6 py-20`}>
-      <div className="mx-auto flex max-w-7xl flex-col justify-center">
+      <div className="mx-auto flex max-w-6xl flex-col justify-center">
         <div ref={headerRef}>
           <SectionHeader
-            eyebrow="Toolkit"
+            // eyebrow="Toolkit"
             title="Skills &"
             highlight="Technologies"
-            icon={<ChipIcon className={`h-10 w-10 ${t.accent}`} />}
+            icon={<ChipIcon className={`h-8 w-8 ${t.accent}`} />}
             theme={theme}
           />
         </div>
 
-        <div className={`mb-10 flex self-center gap-1 rounded-lg border p-1 ${t.softCard}`}>
+        <div className={`mb-8 flex self-center gap-1 rounded-full border p-1 ${t.softCard}`}>
           {skillCategories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActiveTab(cat.key)}
-              className={`rounded-md px-5 py-2 text-sm font-semibold transition ${
+              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200 cursor-pointer ${
                 activeTab === cat.key ? t.accentBg : t.mutedText
               }`}
             >
@@ -126,7 +126,7 @@ export default function Skills() {
           ))}
         </div>
 
-        <div ref={gridRef} className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        <div ref={gridRef} className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {activeSkills.map((skill, index) => (
             <div key={skill.title || index}>
               <Skill {...skill} theme={theme} />

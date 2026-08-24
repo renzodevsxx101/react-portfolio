@@ -116,7 +116,7 @@ const AboutMePage = () => {
 
   return (
     <section ref={sectionRef} id="about-me-detail" className={`${t.mutedPage} section-shell mx-auto px-5 pb-14 pt-2 sm:px-16 sm:pb-20 sm:pt-4`}>
-      <div className="relative z-10 mx-auto max-w-7xl">
+      <div className="relative z-10 mx-auto max-w-6xl">
         <div className="mb-6">
           <Button
             as="a"
@@ -163,8 +163,8 @@ const AboutMePage = () => {
           </div>
         </div>
         <div ref={subHeaderRef} className="mb-6 flex flex-col items-center text-center sm:mb-8">
-          <p className="mb-2 text-2xl font-bold sm:text-3xl">
-            What <span className={t.warm}>I do</span>
+          <p className="font-heading mb-2 text-2xl font-bold sm:text-3xl">
+            What <span className={t.accent}>I do</span>
           </p>
           <LineGradient width="w-32" />
         </div>

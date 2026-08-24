@@ -1,31 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext";
-import "../styles/Navbar.css";
 import useMediaQuery from "../utils/useMediaQuery";
-import { MenuAlt3Icon, XIcon } from "@heroicons/react/solid";
+import { themeTokens, Button } from "./ui";
 import ToggleButton from "./ToggleButton";
-import { Button, themeTokens } from "./ui";
 
 const links = [
-  ["about", "About"],
-  ["experience", "Experience"],
   ["projects", "Projects"],
+  ["experience", "Experience"],
   ["skills", "Skills"],
+  ["about", "About"],
   ["contact", "Contact"],
 ];
 
 function LogoMark() {
   return (
-    <span
-      className="text-3xl font-black tracking-tighter"
-      style={{
-        background: "linear-gradient(135deg, #f5d08a, #d8a469, #f5d08a)",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        WebkitTextStroke: "1px rgba(217,119,6,0.3)",
-      }}
-    >
-      JRP
+    <span className="font-heading text-xl font-bold tracking-tight">
+      <span className="text-primary-500 dark:text-primary-400">J</span>
+      <span className="text-surface-900 dark:text-surface-50">RP</span>
     </span>
   );
 }
@@ -37,81 +28,123 @@ export default function Navbar() {
   const { theme } = useTheme();
   const t = themeTokens(theme);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["experience", "projects", "skills", "contact", "about"];
+      for (const section of sections.reverse()) {
+        const el = document.getElementById(section);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleSetActive = (section) => {
     setActiveSection(section);
     setIsMenuToggled(false);
   };
 
   const linkClass = (section) =>
-    `nav-link rounded-md px-3 py-2 text-sm font-semibold transition ${
+    `rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200 cursor-pointer ${
       activeSection === section
-        ? t.badge
+        ? theme === "light"
+          ? "bg-surface-900 text-white"
+          : "bg-white text-surface-900"
         : `${t.mutedText} ${t.hoverAccent}`
     }`;
 
   return (
     <nav>
-      <div className={`fixed top-0 z-30 w-full border-b backdrop-blur-xl ${t.nav}`}>
-        <div className="mx-auto flex w-11/12 max-w-7xl items-center justify-between py-3">
-          <div className="flex w-full items-center justify-between gap-8">
-            <a href="#about" className="flex items-center gap-3" onClick={() => handleSetActive("about")} aria-label="John Renz home">
-              <LogoMark />
-            </a>
-            {isAboveMediumScreens ?
-              <div className="flex items-center justify-end gap-6">
-                <div className={`flex items-center rounded-lg border p-1 ${t.softCard}`}>
-                  {links.map(([section, label]) => (
-                    <a
-                      key={section}
-                      href={`#${section}`}
-                      className={linkClass(section)}
-                      onClick={() => handleSetActive(section)}
-                    >
-                      {label}
-                    </a>
-                  ))}
-                </div>
-                <div className="flex items-center gap-3">
-                  <ToggleButton />
-                  <Button theme={theme} as="a" href="#contact" onClick={() => handleSetActive("contact")} className="h-10 px-4">
-                    Hire me
-                  </Button>
-                </div>
-              </div>
-              : (
-                <div className="flex items-center justify-center gap-3">
-                  <ToggleButton />
-                  <button
-                    className={`rounded-md border p-2 ${t.card}`}
-                    onClick={() => setIsMenuToggled(!isMenuToggled)}
-                    aria-label="Open menu"
-                  >
-                    <MenuAlt3Icon className={`h-6 w-6 ${t.accent}`} />
-                  </button>
-                </div>
-              )}
+      {/* Floating pill navbar */}
+      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-11/12 max-w-3xl">
+        <div
+          className={`flex items-center justify-between rounded-full border px-4 py-2.5 backdrop-blur-xl ${t.nav} shadow-lg shadow-black/5 dark:shadow-black/20`}
+        >
+          <a
+            href="#hero"
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => handleSetActive("hero")}
+            aria-label="John Renz home"
+          >
+            <LogoMark />
+          </a>
+
+          {isAboveMediumScreens ? (
+            <div className="flex items-center gap-1">
+              {links.map(([section, label]) => (
+                <a
+                  key={section}
+                  href={`#${section}`}
+                  className={linkClass(section)}
+                  onClick={() => handleSetActive(section)}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          ) : null}
+
+          <div className="flex items-center gap-2">
+            <ToggleButton />
+            {isAboveMediumScreens ? (
+              <Button theme={theme} as="a" href="#contact" onClick={() => handleSetActive("contact")} className="h-9 px-4 text-xs rounded-full">
+                Contact Me
+              </Button>
+            ) : (
+              <button
+                className={`flex h-9 w-9 items-center justify-center rounded-full border transition-colors duration-200 ${t.softCard} ${t.mutedText} ${t.hoverAccent} cursor-pointer`}
+                onClick={() => setIsMenuToggled(!isMenuToggled)}
+                aria-label="Open menu"
+              >
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  {isMenuToggled ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                  )}
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Mobile menu overlay */}
       {!isAboveMediumScreens && isMenuToggled && (
-        <div className={`fixed right-0 bottom-0 z-40 h-full w-4/5 max-w-sm border-l p-6 drop-shadow-2xl tilt-in-right-1 ${t.mutedPage}`}>
-          <div className="mb-10 flex items-center justify-between">
-            <p className={`text-sm font-bold uppercase ${t.accent}`}>Menu</p>
-            <button onClick={() => setIsMenuToggled(!isMenuToggled)} aria-label="Close menu">
-              <XIcon className={`h-6 w-6 ${t.mutedText}`} />
-            </button>
-          </div>
-          <div className="flex flex-col gap-2">
-            {links.map(([section, label]) => (
-              <a
-                key={section}
-                href={`#${section}`}
-                className={`${linkClass(section)} text-base`}
-                onClick={() => handleSetActive(section)}
-              >
-                {label}
-              </a>
-            ))}
+        <div>
+          <div
+            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
+            onClick={() => setIsMenuToggled(false)}
+          />
+          <div
+            className={`fixed right-4 top-20 z-50 w-56 rounded-2xl border p-3 shadow-xl ${t.nav} ${
+              theme === "light" ? "animate-fade-in" : "animate-fade-in"
+            }`}
+          >
+            <div className="flex flex-col gap-1">
+              {links.map(([section, label]) => (
+                <a
+                  key={section}
+                  href={`#${section}`}
+                  className={`${linkClass(section)} text-sm`}
+                  onClick={() => handleSetActive(section)}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+            <div className={`mt-2 border-t ${t.border} pt-2`}>
+              <Button theme={theme} as="a" href="#contact" onClick={() => handleSetActive("contact")} className="w-full h-9 text-xs rounded-full">
+                Hire me
+              </Button>
+            </div>
           </div>
         </div>
       )}

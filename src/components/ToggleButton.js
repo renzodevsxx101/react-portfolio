@@ -9,21 +9,24 @@ const ToggleButton = () => {
     return (
         <button
             onClick={toggleTheme}
-            className={`relative flex h-8 w-14 items-center rounded-full border transition-colors duration-300 focus:outline-none ${t.focus} ${theme === "dark" ? "theme-soft-dark" : "theme-soft-light"}`}
-            aria-label="Toggle theme"
+            className={`relative flex h-7 w-12 items-center rounded-full border transition-colors duration-200 focus:outline-none ${t.focus} ${theme === "dark" ? "border-surface-600 bg-surface-800" : "border-surface-200 bg-surface-100"}`}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
         >
             <span
-                className={`absolute flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-md transform transition-transform duration-300 ${theme === "dark" ? "translate-x-6" : "translate-x-1"
-                    }`}
+                className={`absolute flex h-5 w-5 items-center justify-center rounded-full shadow-sm transition-all duration-200 ${
+                    theme === "dark"
+                        ? "translate-x-6 bg-surface-200"
+                        : "translate-x-1 bg-white"
+                }`}
             >
-                {theme === "dark" && (
+                {theme === "dark" ? (
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
-                        className="w-4 h-4 text-black shadow-lg"
+                        className="w-3 h-3 text-surface-700"
                     >
                         <path
                             strokeLinecap="round"
@@ -31,15 +34,14 @@ const ToggleButton = () => {
                             d="M21.752 15.002A9.718 9.718 0 0 1 18 16.5 9.75 9.75 0 0 1 8.25 6.75a9.718 9.718 0 0 1 1.498-3.752 9.007 9.007 0 1 0 12.004 12.004Z"
                         />
                     </svg>
-                )}
-                {theme === "light" && (
+                ) : (
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
-                        className="w-4 h-4 text-yellow-500"
+                        className="w-3 h-3 text-amber-500"
                     >
                         <path
                             strokeLinecap="round"

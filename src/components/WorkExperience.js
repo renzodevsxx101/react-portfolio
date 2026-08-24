@@ -14,7 +14,7 @@ const experiences = [
     logo: "https://thinkbitsolutions.com/wp-content/uploads/2025/06/logo.png",
     period: "Jan 2025 - Present",
     duration: "Current",
-    tags: ["Vue.js",  "jQuery", "AJAX", "SASS/SCSS", "Bootstrap", "Tailwind CSS","MySQL", "Laravel", "Spring Boot", "RESTful API Integration", "Agile/Scrum", "Unit Testing", "CI/CD Pipelines"],
+    tags: ["Vue.js", "jQuery", "AJAX", "SASS/SCSS", "Bootstrap", "Tailwind CSS", "MySQL", "Laravel", "Spring Boot", "RESTful API", "Agile/Scrum", "Unit Testing", "CI/CD"],
     description: [
       "Participate in planning and provide input to work estimations.",
       "Develop components according to specifications and established standards.",
@@ -30,7 +30,7 @@ const experiences = [
     logo: "/static/img/cpi-logo.jpg",
     period: "Sept 2023 - Dec 2024",
     duration: "1 yr 4 mos",
-    tags: ["React.js", "SCSS", "jQuery", "Oracle SQL", "Spring Boot", "RESTful API Integration", "Bootstrap", "AJAX", "Responsive Web Design", "Agile"],
+    tags: ["React.js", "SCSS", "jQuery", "Oracle SQL", "Spring Boot", "RESTful API", "Bootstrap", "AJAX", "Responsive Design", "Agile"],
     description: [
       "Developed responsive and interactive web interfaces.",
       "Optimized front-end performance for speed and scalability.",
@@ -73,8 +73,8 @@ function ExperienceCard({ exp, index, isLast, theme, isExpanded, onToggle }) {
 
     tl.fromTo(
       cardRef.current,
-      { x: 50, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+      { x: 30, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.7, ease: "power3.out" }
     );
 
     return () => {
@@ -84,91 +84,94 @@ function ExperienceCard({ exp, index, isLast, theme, isExpanded, onToggle }) {
   }, []);
 
   return (
-    <div ref={itemRef} className="relative flex gap-5 pb-8 last:pb-0 sm:gap-6">
+    <div ref={itemRef} className="relative flex gap-4 pb-6 last:pb-0 sm:gap-5">
       {/* Timeline connector */}
       <div className="flex flex-col items-center">
-        {/* Logo */}
-        <div className={`relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border-2 bg-white ${t.softCard} sm:h-16 sm:w-16`} style={{ borderColor: isExpanded ? "var(--tw-accent, #D97706)" : undefined }}>
+        <div
+          className={`relative z-10 flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border ${t.softCard} sm:h-12 sm:w-12`}
+          style={{ borderColor: isExpanded ? "#2563EB" : undefined }}
+        >
           <img
             src={exp.logo}
             alt={`${exp.company} logo`}
-            className="h-9 w-9 object-contain p-1 sm:h-10 sm:w-10"
+            className="h-7 w-7 object-contain p-0.5 sm:h-8 sm:w-8"
             style={{ backgroundColor: "#fff" }}
             onError={(e) => {
               e.target.style.display = "none";
               e.target.parentElement.classList.add("exp-logo-fallback");
             }}
           />
-          <span className={`absolute hidden text-lg font-bold ${t.accent}`}>{exp.company.charAt(0)}</span>
+          <span className={`absolute hidden text-sm font-bold ${t.accent}`}>{exp.company.charAt(0)}</span>
         </div>
-        {/* Line */}
         {!isLast && (
-          <div className={`w-0.5 flex-1 ${t.softCard}`} />
+          <div className={`w-px flex-1 ${theme === "light" ? "bg-surface-200" : "bg-surface-700"}`} />
         )}
       </div>
 
       {/* Card */}
       <Card ref={cardRef} theme={theme} className="flex-1 overflow-hidden">
-          <div
-            className="flex w-full cursor-pointer flex-col gap-3 p-5 text-left sm:flex-row sm:items-start sm:justify-between sm:p-6"
-            onClick={onToggle}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onToggle(); }}
-          >
+        <div
+          className="flex w-full cursor-pointer flex-col gap-2 p-4 text-left sm:flex-row sm:items-start sm:justify-between sm:p-5"
+          onClick={onToggle}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onToggle(); }}
+        >
           <div className="flex-1">
-            <div className="flex items-center gap-3">
-              <h3 className="text-lg font-bold sm:text-xl">{exp.title}</h3>
-            </div>
-            <p className={`mt-1 font-semibold ${t.accent}`}>{exp.company}</p>
-            <p className={`mt-2 text-xs font-medium uppercase tracking-wide ${t.mutedText}`}>{exp.period}</p>
+            <h3 className="font-heading text-base font-semibold sm:text-lg">{exp.title}</h3>
+            <p className={`mt-0.5 text-sm font-medium ${t.accent}`}>{exp.company}</p>
+            <p className={`mt-1.5 text-[11px] font-medium uppercase tracking-wider ${t.subtleText}`}>{exp.period}</p>
 
-            {/* Tags */}
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {exp.tags.map((tag) => (
+            <div className="mt-2.5 flex flex-wrap gap-1">
+              {exp.tags.slice(0, 6).map((tag) => (
                 <span
                   key={tag}
-                  className={`inline-block rounded-full px-3 py-1 text-[11px] font-medium ${t.softCard} ${t.mutedText}`}
+                  className={`inline-block rounded-md px-2 py-0.5 text-[10px] font-medium ${t.softCard} ${t.mutedText} border ${t.border}`}
                 >
                   {tag}
                 </span>
               ))}
-            </div>
-          </div>
-
-            <div className="flex items-center gap-2 self-start sm:flex-col sm:items-end sm:gap-1.5">
-              {exp.duration && (
-                <span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wide ${t.accentBg}`}>
-                  {exp.duration}
+              {exp.tags.length > 6 && (
+                <span className={`inline-block rounded-md px-2 py-0.5 text-[10px] font-medium ${t.subtleText}`}>
+                  +{exp.tags.length - 6}
                 </span>
               )}
-              <button
-                type="button"
-                onClick={(e) => { e.stopPropagation(); onToggle(); }}
-                className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition ${t.softCard} ${t.mutedText} hover:opacity-80`}
-              >
-                View Details
-                <ChevronDownIcon
-                  className={`h-4 w-4 flex-shrink-0 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
-                />
-              </button>
             </div>
           </div>
 
+          <div className="flex items-center gap-2 self-start sm:flex-col sm:items-end sm:gap-1.5">
+            {exp.duration && (
+              <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold ${t.accentBg}`}>
+                {exp.duration}
+              </span>
+            )}
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); onToggle(); }}
+              className={`flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-medium transition-all duration-200 ${t.softCard} ${t.mutedText} border ${t.border} hover:opacity-80 cursor-pointer`}
+            >
+              {isExpanded ? "Less" : "Details"}
+              <ChevronDownIcon
+                className={`h-3.5 w-3.5 flex-shrink-0 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+              />
+            </button>
+          </div>
+        </div>
+
         <div
-          className="px-5 sm:px-6"
+          className="px-4 sm:px-5"
           style={{
             maxHeight: isExpanded ? "600px" : "0px",
             opacity: isExpanded ? 1 : 0,
-            transition: "max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease, padding 0.35s ease",
-            paddingBottom: isExpanded ? "1.5rem" : "0px",
+            transition: "max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, padding 0.3s ease",
+            paddingBottom: isExpanded ? "1.25rem" : "0px",
           }}
         >
-          <div className={`border-t ${t.border} mb-4`} />
-          <ul className={`space-y-2.5 text-left text-sm leading-6 ${t.mutedText}`}>
+          <div className={`border-t ${t.border} mb-3`} />
+          <ul className={`space-y-2 text-left text-sm leading-relaxed ${t.mutedText}`}>
             {exp.description.map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className={`mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full ${t.warmBg}`} />
+              <li key={item} className="flex gap-2.5">
+                <span className={`mt-2 h-1 w-1 flex-shrink-0 rounded-full ${t.accentBg}`} />
                 <span>{item}</span>
               </li>
             ))}
@@ -194,11 +197,11 @@ export default function WorkExperience() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headerRef.current,
-        { y: 60, opacity: 0 },
+        { y: 40, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 1.3,
+          duration: 1,
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -213,19 +216,19 @@ export default function WorkExperience() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="experience" className={`${t.mutedPage} px-6 py-20`}>
-      <div className="mx-auto max-w-7xl">
+    <section ref={sectionRef} id="experience" className={`${t.page} px-6 py-20`}>
+      <div className="mx-auto max-w-6xl">
         <div ref={headerRef}>
           <SectionHeader
-            eyebrow="Experience"
+            // eyebrow="Experience"
             title="Work"
             highlight="Experience"
-            icon={<BriefcaseIcon className={`h-10 w-10 ${t.accent}`} />}
+            icon={<BriefcaseIcon className={`h-8 w-8 ${t.accent}`} />}
             theme={theme}
           />
         </div>
 
-        <div className="relative mx-auto max-w-4xl">
+        <div className="relative mx-auto max-w-3xl">
           {experiences.map((exp, index) => (
             <ExperienceCard
               key={exp.title}
