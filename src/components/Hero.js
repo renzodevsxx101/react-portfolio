@@ -66,7 +66,7 @@ export default function Hero() {
               variant="primary"
               className="px-6"
             >
-              View Projects
+              View Projectsss
               <ArrowRightIcon className="h-4 w-4" />
             </Button>
             <Button
