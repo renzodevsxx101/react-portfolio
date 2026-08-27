@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { themeTokens, Button } from "./ui";
 
 const stats = [
-  { value: "15+", label: "Projects Delivered" },
+  { value: "15+", label: "Projects Delssivered" },
   { value: "11+", label: "Satisfied Clients" },
   { value: "3+", label: "Years Experience" },
 ];
